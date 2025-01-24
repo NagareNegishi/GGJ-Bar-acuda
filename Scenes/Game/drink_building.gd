@@ -39,28 +39,75 @@ func _process(delta: float) -> void:
 			$SodaMachine.hide()
 			$IceMachine.hide()
 			$StrawSelection.show()
+			$CanvasLayer/ServeDrinkBtn.show()
+			$CanvasLayer/NextActivityBtn.hide()
 
+###GLASS SELECTION###
 
 func _on_short_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.SHORT
+	print("short glass selected")
 
 func _on_tall_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.TALL
+	print("tall glass selected")
 
 func _on_wine_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.WINE
+	print("wine glass selected")
 
 func _on_float_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.FLOAT
+	print("float glass selected")
+	
+###SODA SELECTION###
 
+func _on_kelp_btn_pressed() -> void:
+	#check if soda is in the area
+	user_drink.selected_soda = user_drink.SodaTypes.KELPACOLA
+	print("kelp soda selected")
+
+func _on_sarsa_btn_pressed() -> void:
+	user_drink.selected_soda = user_drink.SodaTypes.SARSAKRILLA
+	print("sarsa soda selected")
+	
+func _on_mollusk_btn_pressed() -> void:
+	user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
+	print("moll soda selected")
+	
+func _on_lp_btn_pressed() -> void:
+	user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
+	print("moll soda selected")
 
 func _on_next_activity_btn_pressed() -> void:
-	if _check_valid():
-		if curr_act_state == 3:
-			curr_act_state = 0
-		else:
-			curr_act_state+=1
-		#drink_building.curr_act_state+=1
+	if _check_valid() && curr_act_state < 3:
+		#if curr_act_state == 3:
+			#curr_act_state = 0
+		#else:
+			#curr_act_state+=1
+		curr_act_state+=1
 		
 func _check_valid() -> bool:
+	match curr_act_state :
+		ActivityStates.GLASS :
+			if(user_drink.selected_glass == user_drink.GlassTypes.NONE):
+				print("you cannot proceed without a glass....")
+				return false
+			else: 
+				return true
+		ActivityStates.SODA :
+			return true
+		ActivityStates.ICE :
+			return true
+		ActivityStates.STRAW :
+			return true
+				
 	return false
+
+
+func _on_serve_drink_btn_pressed() -> void:
+	#TO DO: drink comparrison (emit signal and compare enums?)
+	#reset user drink
+	curr_act_state = 0
+	$CanvasLayer/ServeDrinkBtn.hide()
+	$CanvasLayer/NextActivityBtn.show()

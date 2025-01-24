@@ -7,3 +7,31 @@ offset_left = 704.0
 offset_right = 1150.0
 offset_bottom = 645.0
 color = Color(0.808835, 0.227262, 0.441228, 1)
+
+[node name="KelpBtn" type="Button" parent="."]
+offset_left = 941.0
+offset_top = 276.0
+offset_right = 990.0
+offset_bottom = 307.0
+text = "Kelpacola"
+
+[node name="SarsaBtn" type="Button" parent="."]
+offset_left = 810.0
+offset_top = 237.0
+offset_right = 846.0
+offset_bottom = 268.0
+text = "Sarsakrilla"
+
+[node name="MolluskBtn" type="Button" parent="."]
+offset_left = 686.0
+offset_top = 230.0
+offset_right = 733.0
+offset_bottom = 261.0
+text = "Mollusk Dew"
+
+[node name="LPBtn" type="Button" parent="."]
+offset_left = 584.0
+offset_top = 249.0
+offset_right = 631.0
+offset_bottom = 280.0
+text = "LP"
