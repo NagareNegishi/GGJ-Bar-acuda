@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://nucutein2dvs"]
+[gd_scene load_steps=2 format=3 uid="uid://nucutein2dvs"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Fish/fish.gd" id="1_hi8q4"]
 
 [node name="Fish" type="Node2D"]
+script = ExtResource("1_hi8q4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
