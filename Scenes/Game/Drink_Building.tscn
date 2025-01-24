@@ -11,9 +11,9 @@
 script = ExtResource("1_y4faq")
 
 [node name="GlassesCupsBottles" parent="." instance=ExtResource("1_r3hcx")]
+visible = false
 
 [node name="SodaMachine" parent="." instance=ExtResource("3_qrcsg")]
-visible = false
 
 [node name="IceMachine" parent="." instance=ExtResource("2_dmqd3")]
 visible = false
@@ -22,6 +22,7 @@ visible = false
 visible = false
 
 [node name="UserDrink" parent="." instance=ExtResource("6_683gw")]
+position = Vector2(548, 585)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

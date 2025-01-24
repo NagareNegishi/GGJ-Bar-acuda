@@ -9,6 +9,7 @@ enum GlassTypes {
 	FLOAT
 }
 var selected_glass := GlassTypes.NONE
+@onready var glass_sprite = $Glass
 
 enum SodaTypes {
 	NONE,
@@ -18,6 +19,7 @@ enum SodaTypes {
 	LP
 }
 var selected_soda := SodaTypes.NONE
+@onready var soda_sprite = $Glass/Soda
 
 enum IceTypes{
 	NONE = 0,
@@ -25,6 +27,7 @@ enum IceTypes{
 	TWO = 2
 }
 var selected_ice := IceTypes.NONE
+@onready var ice_sprite = $Glass/Ice
 
 enum StrawTypes{
 	NONE,
@@ -33,10 +36,11 @@ enum StrawTypes{
 	CURLY
 }
 var selected_straw := StrawTypes.NONE
+@onready var straw_sprite = $Glass/Straw
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	glass_sprite.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

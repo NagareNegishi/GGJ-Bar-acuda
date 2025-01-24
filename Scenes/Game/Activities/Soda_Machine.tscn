@@ -1,37 +1,82 @@
-[gd_scene format=3 uid="uid://01glyyjjfhfy"]
+[gd_scene load_steps=6 format=3 uid="uid://01glyyjjfhfy"]
+
+[ext_resource type="Texture2D" uid="uid://btj36cs5rj8en" path="res://Assets/Images/sodamachineWITHbuttons.png" id="1_lkusv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7xjj"]
+size = Vector2(73, 262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mask"]
+size = Vector2(73, 263)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrrul"]
+size = Vector2(73, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdw7x"]
+size = Vector2(73, 261)
 
 [node name="SodaMachine" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 704.0
+offset_left = 462.0
 offset_right = 1150.0
 offset_bottom = 645.0
-color = Color(0.808835, 0.227262, 0.441228, 1)
+color = Color(0.519064, 0.333938, 0.926351, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 159.0
+offset_right = 1077.0
+offset_bottom = 649.0
+texture = ExtResource("1_lkusv")
+expand_mode = 1
 
 [node name="KelpBtn" type="Button" parent="."]
-offset_left = 941.0
-offset_top = 276.0
-offset_right = 990.0
-offset_bottom = 307.0
-text = "Kelpacola"
+offset_left = 624.0
+offset_top = 244.0
+offset_right = 697.0
+offset_bottom = 308.0
+
+[node name="Kelp" type="Area2D" parent="KelpBtn"]
+position = Vector2(-465, -244)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KelpBtn/Kelp"]
+position = Vector2(502.5, 445)
+shape = SubResource("RectangleShape2D_f7xjj")
 
 [node name="SarsaBtn" type="Button" parent="."]
-offset_left = 810.0
-offset_top = 237.0
-offset_right = 846.0
-offset_bottom = 268.0
-text = "Sarsakrilla"
+offset_left = 718.0
+offset_top = 245.0
+offset_right = 791.0
+offset_bottom = 306.0
+
+[node name="Sarsa" type="Area2D" parent="SarsaBtn"]
+position = Vector2(-465, -244)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SarsaBtn/Sarsa"]
+position = Vector2(502.5, 444.5)
+shape = SubResource("RectangleShape2D_5mask")
 
 [node name="MolluskBtn" type="Button" parent="."]
-offset_left = 686.0
-offset_top = 230.0
-offset_right = 733.0
-offset_bottom = 261.0
-text = "Mollusk Dew"
+offset_left = 811.0
+offset_top = 244.0
+offset_right = 884.0
+offset_bottom = 304.0
+
+[node name="Moll" type="Area2D" parent="MolluskBtn"]
+position = Vector2(-465, -244)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MolluskBtn/Moll"]
+position = Vector2(502.5, 444.5)
+shape = SubResource("RectangleShape2D_hrrul")
 
 [node name="LPBtn" type="Button" parent="."]
-offset_left = 584.0
-offset_top = 249.0
-offset_right = 631.0
-offset_bottom = 280.0
-text = "LP"
+offset_left = 909.0
+offset_top = 246.0
+offset_right = 982.0
+offset_bottom = 302.0
+
+[node name="Sarsa" type="Area2D" parent="LPBtn"]
+position = Vector2(-465, -244)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LPBtn/Sarsa"]
+position = Vector2(503, 442.5)
+shape = SubResource("RectangleShape2D_cdw7x")

@@ -46,18 +46,22 @@ func _process(delta: float) -> void:
 
 func _on_short_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.SHORT
+	user_drink.glass_sprite.show()
 	print("short glass selected")
 
 func _on_tall_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.TALL
+	user_drink.glass_sprite.show()
 	print("tall glass selected")
 
 func _on_wine_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.WINE
+	user_drink.glass_sprite.show()
 	print("wine glass selected")
 
 func _on_float_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.FLOAT
+	user_drink.glass_sprite.show()
 	print("float glass selected")
 	
 ###SODA SELECTION###
