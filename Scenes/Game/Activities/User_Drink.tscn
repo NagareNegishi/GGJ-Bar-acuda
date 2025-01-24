@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd6ilyoqex07l"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Activities/user_drink.gd" id="1_dfh6d"]
+
+[node name="UserDrink" type="Node2D"]
+script = ExtResource("1_dfh6d")
+
+[node name="Glass" type="Sprite2D" parent="."]
+
+[node name="Soda" type="Sprite2D" parent="Glass"]
+
+[node name="Ice" type="Sprite2D" parent="Glass"]
+
+[node name="Straw" type="Sprite2D" parent="Glass"]

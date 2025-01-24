@@ -7,7 +7,7 @@ enum ActivityStates{
 	STRAW = 3
 }
 
-
+@onready var user_drink = $UserDrink
 
 #var activity = [$GlassesCupsBottles, $SodaMachine, $IceMachine, $StrawSelection]
 var curr_act_state =  ActivityStates.GLASS;
@@ -39,3 +39,16 @@ func _process(delta: float) -> void:
 			$SodaMachine.hide()
 			$IceMachine.hide()
 			$StrawSelection.show()
+
+
+func _on_short_glass_btn_pressed() -> void:
+	user_drink.selected_glass = user_drink.GlassTypes.SHORT
+
+func _on_tall_glass_btn_pressed() -> void:
+	user_drink.selected_glass = user_drink.GlassTypes.TALL
+
+func _on_wine_glass_btn_pressed() -> void:
+	user_drink.selected_glass = user_drink.GlassTypes.WINE
+
+func _on_float_glass_btn_pressed() -> void:
+	user_drink.selected_glass = user_drink.GlassTypes.FLOAT

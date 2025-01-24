@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b50eo3d735x12"]
+[gd_scene load_steps=7 format=3 uid="uid://b50eo3d735x12"]
 
 [ext_resource type="PackedScene" uid="uid://tqnkpcyhy8g" path="res://Scenes/Game/Activities/Glasses_Cups_Bottles.tscn" id="1_r3hcx"]
 [ext_resource type="Script" path="res://Scenes/Game/drink_building.gd" id="1_y4faq"]
 [ext_resource type="PackedScene" uid="uid://b2i1bkjfm3q5d" path="res://Scenes/Game/Activities/Ice_Machine.tscn" id="2_dmqd3"]
 [ext_resource type="PackedScene" uid="uid://01glyyjjfhfy" path="res://Scenes/Game/Activities/Soda_Machine.tscn" id="3_qrcsg"]
 [ext_resource type="PackedScene" uid="uid://dxkplfexiykb6" path="res://Scenes/Game/Activities/Straw_Selection.tscn" id="4_xnmnc"]
+[ext_resource type="PackedScene" uid="uid://bd6ilyoqex07l" path="res://Scenes/Game/Activities/User_Drink.tscn" id="6_683gw"]
 
 [node name="DrinkBuilding" type="Node2D"]
 script = ExtResource("1_y4faq")
@@ -19,3 +20,12 @@ visible = false
 
 [node name="StrawSelection" parent="." instance=ExtResource("4_xnmnc")]
 visible = false
+
+[node name="UserDrink" parent="." instance=ExtResource("6_683gw")]
+
+[connection signal="pressed" from="GlassesCupsBottles/ShortGlassBtn" to="." method="_on_short_glass_btn_pressed"]
+[connection signal="pressed" from="GlassesCupsBottles/TallGlassBtn" to="." method="_on_tall_glass_btn_pressed"]
+[connection signal="pressed" from="GlassesCupsBottles/WineGlassBtn" to="." method="_on_wine_glass_btn_pressed"]
+[connection signal="pressed" from="GlassesCupsBottles/FloatGlassBtn" to="." method="_on_float_glass_btn_pressed"]
+
+[editable path="GlassesCupsBottles"]
