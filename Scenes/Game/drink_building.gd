@@ -52,3 +52,15 @@ func _on_wine_glass_btn_pressed() -> void:
 
 func _on_float_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.FLOAT
+
+
+func _on_next_activity_btn_pressed() -> void:
+	if _check_valid():
+		if curr_act_state == 3:
+			curr_act_state = 0
+		else:
+			curr_act_state+=1
+		#drink_building.curr_act_state+=1
+		
+func _check_valid() -> bool:
+	return false

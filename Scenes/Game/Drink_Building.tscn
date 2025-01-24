@@ -23,9 +23,20 @@ visible = false
 
 [node name="UserDrink" parent="." instance=ExtResource("6_683gw")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NextActivityBtn" type="Button" parent="CanvasLayer"]
+offset_left = 1100.0
+offset_top = 590.0
+offset_right = 1142.0
+offset_bottom = 633.0
+text = ">"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="GlassesCupsBottles/ShortGlassBtn" to="." method="_on_short_glass_btn_pressed"]
 [connection signal="pressed" from="GlassesCupsBottles/TallGlassBtn" to="." method="_on_tall_glass_btn_pressed"]
 [connection signal="pressed" from="GlassesCupsBottles/WineGlassBtn" to="." method="_on_wine_glass_btn_pressed"]
 [connection signal="pressed" from="GlassesCupsBottles/FloatGlassBtn" to="." method="_on_float_glass_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextActivityBtn" to="." method="_on_next_activity_btn_pressed"]
 
 [editable path="GlassesCupsBottles"]
