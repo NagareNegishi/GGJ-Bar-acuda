@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1c2xc66lqb8k"]
+
+[ext_resource type="Script" path="res://Scenes/Game/main_game.gd" id="1_4tabr"]
+[ext_resource type="Texture2D" uid="uid://i83tovi5qa63" path="res://Assets/Images/conceptfish.png" id="2_idvkc"]
+[ext_resource type="PackedScene" uid="uid://b50eo3d735x12" path="res://Scenes/Game/Drink_Building.tscn" id="3_yiso3"]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_4tabr")
+
+[node name="PlaceholderImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = ExtResource("2_idvkc")
+expand_mode = 1
+
+[node name="DrinkBuilding" parent="." instance=ExtResource("3_yiso3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NextActivityBtn" type="Button" parent="CanvasLayer"]
+offset_left = 1100.0
+offset_top = 590.0
+offset_right = 1142.0
+offset_bottom = 633.0
+text = ">"
+
+[connection signal="pressed" from="CanvasLayer/NextActivityBtn" to="." method="_on_next_activity_btn_pressed"]

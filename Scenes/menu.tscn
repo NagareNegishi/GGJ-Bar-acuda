@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0lng6rfl4sy4"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_c8er0"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+script = ExtResource("1_c8er0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 651.0
+color = Color(0.212628, 0.542226, 0.715025, 1)
+
+[node name="StartBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 292.0
+offset_right = 184.0
+offset_bottom = 323.0
+text = "Start"
+
+[node name="SettingsBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 341.0
+offset_right = 208.0
+offset_bottom = 372.0
+text = "Settings"
+
+[node name="ExitBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 388.0
+offset_right = 178.0
+offset_bottom = 419.0
+text = "Exit"
+
+[node name="TestLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 151.0
+offset_right = 674.0
+offset_bottom = 208.0
+text = "cool menu (&logo if someone wants to make one idk it's not my job lol)"
+
+[connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]

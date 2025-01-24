@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://tqnkpcyhy8g"]
+
+[node name="GlassesCupsBottles" type="Node2D"]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 704.0
+offset_right = 1150.0
+offset_bottom = 645.0
+color = Color(0.524456, 0.385668, 0.801462, 1)
