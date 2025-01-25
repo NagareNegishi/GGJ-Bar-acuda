@@ -4,24 +4,24 @@ class_name Fish
 const GOOD_COMMENTS = [
 	"Thanks, sea you next time!",
 	"Ahhhh, this will tide me over.",
-	"Now I just need to figure out how to drink this.",
-	"This soda is pretty sharp. I'm hooked!",
+	"Now I just need to figure out \nhow to drink this.",
+	"This soda is pretty sharp. \nI'm hooked!",
 	"Wow, this place is gonna make waves.",
-	"Mmmm, that's worth shelling out for.", 
-	"This is the best drink in the shoal world!",
+	"Mmmm, that's worth shelling out for.",
+	"This is the best drink \nin the shoal world!",
 	"This drink is good for the sole.",
 	"O, for tuna!",
-	"Delicious! That's a real breath of fresh water.",
+	"Delicious! \nThat's a real breath of fresh water.",
 	"This will go down swimmingly."
 ]
 
 const BAD_COMMENTS = [
 	"I expected batter from you.",
-	"What a waste. I don't even have taste buds.",
-	"Are you sea-rious? This isn't what I ordered.",
-	"Are you shore this is what I ordered?",
-	"You're really floundering, aren't you?",
-	"My disappointment is immeasurable and my day is ruined.",
+	"What a waste. \nI don't even have taste buds.",
+	"Are you sea-rious? \nThis isn't what I ordered.",
+	"Are you shore \nthis is what I ordered?",
+	"You're really floundering, \naren't you?",
+	"My disappointment is immeasurable \nand my day is ruined.",
 ]
 
 const WAITING_COMMENTS = [
@@ -68,9 +68,10 @@ enum Type { ## type of fish, turtle??
 var type: Type
 var is_adult: bool
 var order: Order
-var drink: String #Drink
+var drink
 var satisfaction: int = 100  # 0-100
 var threshold: int = 70
+var deduction_per_mismatch = 15
 var comment: String
 #var state: State = State.ENTERING
 
@@ -95,9 +96,8 @@ func request_order():
 	place_order.emit()
 
 # receive the drink from the shop
-func receive_drink(drink: String):
-	self.drink = drink
-	print("Received drink: %s" % drink)
+func receive_drink(product):
+	self.drink = product
 	calculate_satisfaction()
 	generate_comment()
 	await get_tree().create_timer(5.0).timeout
@@ -105,7 +105,22 @@ func receive_drink(drink: String):
 
 # calculate the satisfaction based on the drink
 func calculate_satisfaction():
-	pass
+
+	# Convert Order's enums to Fish's matching enums for comparison
+	var ordered_glass = convert_glass(order.glass)
+	var ordered_ice = convert_ice(order.ice)
+	var ordered_soda = convert_soda(order.soda)
+	var ordered_straw = convert_straw(order.straw)
+
+	if drink.selected_glass != ordered_glass:
+		satisfaction -= deduction_per_mismatch
+	if drink.selected_soda != ordered_soda:
+		satisfaction -= deduction_per_mismatch
+	if drink.selected_ice != ordered_ice:
+		satisfaction -= deduction_per_mismatch
+	if drink.selected_straw != ordered_straw:
+		satisfaction -= deduction_per_mismatch
+
 
 # make a comment about the drink
 func generate_comment():
@@ -147,3 +162,66 @@ func _on_timer_timeout():
 	label.text = WAITING_COMMENTS[randi() % WAITING_COMMENTS.size()]
 	await get_tree().create_timer(5.0).timeout
 	panel.visible = false
+
+
+"very ugly, but we can avoid code crushing each other"
+	## helpers to compare order/drink
+enum GlassTypes {
+	NONE,
+	WIDE,
+	TALL,
+	SUNDAE,
+	MILK
+}
+
+enum SodaTypes {
+	NONE,
+	KELPACOLA,
+	SARSAKRILLA,
+	MOLLUSKDEW,
+	LP
+}
+
+enum IceTypes{
+	NONE = 0,
+	ONE = 1,
+	TWO = 2
+}
+
+enum StrawTypes{
+	NONE,
+	STRAIGHT,
+	BENDY,
+	CURLY
+}
+
+func convert_glass(glass: Order.Glass) -> GlassTypes:
+	match glass:
+		Order.Glass.MILKSHAKE: return GlassTypes.MILK
+		Order.Glass.TALL: return GlassTypes.TALL
+		Order.Glass.SHORT: return GlassTypes.WIDE
+		Order.Glass.STEMMED: return GlassTypes.SUNDAE
+	return GlassTypes.NONE
+
+func convert_ice(ice: Order.Ice) -> IceTypes:
+	match ice:
+		Order.Ice.NONE: return IceTypes.NONE
+		Order.Ice.LIGHT: return IceTypes.ONE
+		Order.Ice.REGULAR, Order.Ice.EXTRA: return IceTypes.TWO
+	return IceTypes.NONE
+
+func convert_soda(soda: Order.Soda) -> SodaTypes:
+	match soda:
+		Order.Soda.KELPA_COLA: return SodaTypes.KELPACOLA
+		Order.Soda.SQRSAKOLLA: return SodaTypes.SARSAKRILLA
+		Order.Soda.MOLLUSK_DEW: return SodaTypes.MOLLUSKDEW
+		Order.Soda.LEMDN_AND_PROTOZOA: return SodaTypes.LP
+	return SodaTypes.NONE
+
+func convert_straw(straw: Order.Straw) -> StrawTypes:
+	match straw:
+		Order.Straw.NO: return StrawTypes.NONE
+		Order.Straw.STRAIGHT: return StrawTypes.STRAIGHT
+		Order.Straw.PAPER: return StrawTypes.STRAIGHT
+		Order.Straw.CURLY: return StrawTypes.CURLY
+	return StrawTypes.NONE

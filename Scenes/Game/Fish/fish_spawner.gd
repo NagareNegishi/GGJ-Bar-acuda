@@ -43,8 +43,15 @@ func _on_button_pressed():
 
 
 	if current_fish != null:
-		current_fish.receive_drink(current_fish.order.PrintOut(current_fish.is_adult))
-		await get_tree().create_timer(1.0).timeout
+
+		var user_drink = preload("res://Scenes/Game/Activities/user_drink.gd").new() # Adjust path
+		user_drink.selected_glass = user_drink.GlassTypes.TALL
+		user_drink.selected_soda = user_drink.SodaTypes.KELPACOLA
+		user_drink.selected_ice = user_drink.IceTypes.ONE
+		user_drink.selected_straw = user_drink.StrawTypes.STRAIGHT
+
+		current_fish.receive_drink(user_drink)
+		await get_tree().create_timer(6.0).timeout
 		current_fish.leave_shop()
 
 

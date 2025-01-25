@@ -17,7 +17,3 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Util/game_manager.gd"
-
-[global_group]
-
-drop_spots=""
