@@ -31,18 +31,20 @@ var selected_soda := SodaTypes.NONE
 enum IceTypes{
 	NONE = 0,
 	ONE = 1,
-	TWO = 2
+	TWO = 2,
+	THREE = 3
 }
 var no_of_ice = 0;
 var selected_ice := IceTypes.NONE
 @onready var ice_sprite = $Glass/Ice
 
 enum StrawTypes{
-	NONE,
-	STRAIGHT,
-	BENDY,
-	CURLY
+	NONE = 0,
+	ONE = 1,
+	TWO = 2,
+	THREE = 3
 }
+var no_of_straws = 0;
 var selected_straw := StrawTypes.NONE
 @onready var straw_sprite = $Glass/Straw
 		

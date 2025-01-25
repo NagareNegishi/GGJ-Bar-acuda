@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl8pemds6q2g0"]
+
+[ext_resource type="Texture2D" uid="uid://jt3acdyhxt7t" path="res://icon.svg" id="1_gji5x"]
+[ext_resource type="Script" path="res://Scenes/Game/Activities/straw.gd" id="2_vby8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sddur"]
+
+[node name="Straw" type="Sprite2D"]
+texture = ExtResource("1_gji5x")
+script = ExtResource("2_vby8v")
+
+[node name="StrawArea" type="Area2D" parent="."]
+scale = Vector2(6.425, 6.425)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StrawArea"]
+shape = SubResource("RectangleShape2D_sddur")

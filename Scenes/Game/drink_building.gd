@@ -3,8 +3,7 @@ extends Node2D
 enum ActivityStates{
 	GLASS = 0,
 	SODA = 1,
-	ICE = 2,
-	STRAW = 3
+	EXTRAS = 2,
 }
 
 @onready var user_drink = $UserDrink
@@ -38,19 +37,15 @@ func _process(delta: float) -> void:
 			$SodaMachine.show()
 			$IceMachine.hide()
 			$StrawSelection.hide()
-		ActivityStates.ICE :
+		ActivityStates.EXTRAS :
 			soda_machine._disable_snapping()
 			$GlassesCupsBottles.hide()
 			$SodaMachine.hide()
 			$IceMachine.show()
 			$StrawSelection.hide()
-		ActivityStates.STRAW :
-			$GlassesCupsBottles.hide()
-			$SodaMachine.hide()
-			$IceMachine.hide()
-			$StrawSelection.show()
 			$CanvasLayer/ServeDrinkBtn.show()
 			$CanvasLayer/NextActivityBtn.hide()
+			
 
 ###GLASS SELECTION###
 
@@ -110,11 +105,7 @@ func _on_lp_btn_pressed() -> void:
 		print("no glass in the drink zone!!")
 
 func _on_next_activity_btn_pressed() -> void:
-	if _check_valid() && curr_act_state < 3:
-		#if curr_act_state == 3:
-			#curr_act_state = 0
-		#else:
-			#curr_act_state+=1
+	if _check_valid() && curr_act_state < 2:
 		curr_act_state+=1
 		
 func _check_valid() -> bool:
@@ -127,9 +118,7 @@ func _check_valid() -> bool:
 				return true
 		ActivityStates.SODA :
 			return true
-		ActivityStates.ICE :
-			return true
-		ActivityStates.STRAW :
+		ActivityStates.EXTRAS :
 			return true
 				
 	return false
@@ -153,6 +142,16 @@ func _add_ice() -> void:
 	if user_drink.no_of_ice >= 2:
 		print("you cannot possibly put more ice in this glass!")
 	else:
+		print("added ice")
 		user_drink.no_of_ice+=1
 		user_drink.selected_ice = user_drink.IceTypes.keys()[user_drink.no_of_ice]
+
+func _add_straw() -> void:
+	if user_drink.no_of_straws >= 3:
+		print("you cannot possibly put more straws in this glass!")
+	else:
+		print("added straw")
+		user_drink.no_of_straws+=1
+		user_drink.selected_straw = user_drink.StrawTypes.keys()[user_drink.no_of_straws]
+
 	
