@@ -13,7 +13,7 @@ enum ActivityStates{
 var curr_act_state =  ActivityStates.GLASS;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	user_drink.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 
 func _on_short_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.SHORT
-	user_drink.glass_sprite.show()
+	user_drink.show()
 	print("short glass selected")
 
 func _on_tall_glass_btn_pressed() -> void:
@@ -56,12 +56,12 @@ func _on_tall_glass_btn_pressed() -> void:
 
 func _on_wine_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.WINE
-	user_drink.glass_sprite.show()
+	user_drink.show()
 	print("wine glass selected")
 
 func _on_float_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.FLOAT
-	user_drink.glass_sprite.show()
+	user_drink.show()
 	print("float glass selected")
 	
 ###SODA SELECTION###

@@ -43,6 +43,7 @@ var selected_straw := StrawTypes.NONE
 func _ready() -> void:
 	pass
 	#glass_sprite.hide()
+	#$DrinkArea.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

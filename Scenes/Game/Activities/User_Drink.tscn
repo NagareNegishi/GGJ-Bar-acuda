@@ -16,10 +16,13 @@ texture = ExtResource("2_70hom")
 script = ExtResource("3_asv1u")
 
 [node name="Soda" type="Sprite2D" parent="Glass"]
+visible = false
 
 [node name="Ice" type="Sprite2D" parent="Glass"]
+visible = false
 
 [node name="Straw" type="Sprite2D" parent="Glass"]
+visible = false
 
 [node name="DrinkArea" type="Area2D" parent="."]
 position = Vector2(0, -2.27374e-13)

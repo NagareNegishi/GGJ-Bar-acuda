@@ -1,4 +1,39 @@
-[gd_scene format=3 uid="uid://tqnkpcyhy8g"]
+[gd_scene load_steps=17 format=3 uid="uid://tqnkpcyhy8g"]
+
+[ext_resource type="Texture2D" uid="uid://do007i1c42uv1" path="res://Assets/Images/Glasses/wideglass.png" id="1_u650u"]
+[ext_resource type="Texture2D" uid="uid://bt3npp84v8t7d" path="res://Assets/Images/Glasses/wideglassNOwhiteline.png" id="2_t238c"]
+[ext_resource type="Texture2D" uid="uid://bmdxgvyjxt1gh" path="res://Assets/Images/Glasses/tallglass.png" id="3_jkh6u"]
+[ext_resource type="Texture2D" uid="uid://yl3s0igvrqji" path="res://Assets/Images/Glasses/tallglassNOwhiteline.png" id="4_a7aiy"]
+[ext_resource type="Texture2D" uid="uid://6iyyflda84ef" path="res://Assets/Images/Glasses/milkshakeglass.png" id="5_qfq0k"]
+[ext_resource type="Texture2D" uid="uid://b7aifpvp8xpen" path="res://Assets/Images/Glasses/sundaeglass.png" id="5_sracf"]
+[ext_resource type="Texture2D" uid="uid://3i1hjw1fffd0" path="res://Assets/Images/Glasses/milkshakeglassNOwhiteline.png" id="6_s6dib"]
+[ext_resource type="Texture2D" uid="uid://d0y15bghpmaov" path="res://Assets/Images/Glasses/sundaeglassNOwhiteline.png" id="6_u83rm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hke8l"]
+texture = ExtResource("1_u650u")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56bdf"]
+texture = ExtResource("2_t238c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xyt5"]
+texture = ExtResource("3_jkh6u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hq0b1"]
+texture = ExtResource("4_a7aiy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epce8"]
+texture = ExtResource("5_sracf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exr2l"]
+texture = ExtResource("6_u83rm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mfm7l"]
+texture = ExtResource("5_qfq0k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdk25"]
+texture = ExtResource("6_s6dib")
 
 [node name="GlassesCupsBottles" type="Node2D"]
 
@@ -9,29 +44,33 @@ offset_bottom = 645.0
 color = Color(0.524456, 0.385668, 0.801462, 1)
 
 [node name="ShortGlassBtn" type="Button" parent="."]
-offset_left = 941.0
-offset_top = 276.0
-offset_right = 990.0
-offset_bottom = 307.0
-text = "short"
+offset_left = 966.0
+offset_top = 43.0
+offset_right = 1097.0
+offset_bottom = 314.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_hke8l")
+theme_override_styles/normal = SubResource("StyleBoxTexture_56bdf")
 
 [node name="TallGlassBtn" type="Button" parent="."]
-offset_left = 810.0
-offset_top = 237.0
-offset_right = 846.0
-offset_bottom = 268.0
-text = "Tall"
+offset_left = 802.0
+offset_top = 32.0
+offset_right = 933.0
+offset_bottom = 303.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_6xyt5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hq0b1")
 
 [node name="WineGlassBtn" type="Button" parent="."]
-offset_left = 686.0
-offset_top = 230.0
-offset_right = 733.0
-offset_bottom = 261.0
-text = "Wine"
+offset_left = 644.0
+offset_top = 32.0
+offset_right = 775.0
+offset_bottom = 303.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_epce8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_exr2l")
 
 [node name="FloatGlassBtn" type="Button" parent="."]
-offset_left = 584.0
-offset_top = 249.0
-offset_right = 631.0
-offset_bottom = 280.0
-text = "Float"
+offset_left = 479.0
+offset_top = 32.0
+offset_right = 610.0
+offset_bottom = 303.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_mfm7l")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bdk25")
