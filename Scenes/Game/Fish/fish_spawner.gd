@@ -2,6 +2,7 @@ class_name FishSpawner
 extends Node2D
 
 @onready var order_ui = $OrderUI
+@onready var book = $Fish_PictureBook
 
 @export var fish_scene: PackedScene
 @export var fish_spawn_interval: float = 0.5
@@ -24,14 +25,13 @@ func spawn_fish():
 
 	# Connect to fish exit signal
 	fish.tree_exiting.connect(func(): current_fish = null)
-	print("Fish spawned")
-	print(fish.get_info())
+
 
 # fish left
 func _on_Fish_left():
 	current_fish = null
 	await get_tree().create_timer(fish_spawn_interval).timeout
-	#print("Fish left")
+	print("Fish left")
 	spawn_fish()
 
 
@@ -44,7 +44,8 @@ func _on_button_pressed():
 
 	if current_fish != null:
 		current_fish.make_payment()
-		current_fish = null
+		current_fish.leave_shop()
+
 
 
 

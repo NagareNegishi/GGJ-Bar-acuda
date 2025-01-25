@@ -3,17 +3,6 @@ extends Node2D
 class_name Fish
 
 
-"""var fish_images = {
-    Type.FISH: [
-		],
-		Type.TURTLE: [
-    ]
-}"""
-
-
-
-
-
 signal display_order(item_name: String)
 signal place_order()
 signal pay(amount: int)
@@ -48,16 +37,9 @@ var comment: String
 func _ready():
 	order = Order.new()
 	order.generate_random()
-	#set_random_sprite()
-	#set_sprite()
-
-	print("order is %s" % order.PrintOut())
+	set_sprite()
 	request_order()
 
-"""func set_random_sprite():
-	var images = fish_images[type]
-	var random_texture = images[randi() % images.size()]
-	sprite.texture = random_texture"""
 
 func set_sprite():
 	var fish_picture_book = FishPictureBook.new()
