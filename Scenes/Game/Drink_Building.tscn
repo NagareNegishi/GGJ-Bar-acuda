@@ -22,15 +22,15 @@ visible = false
 visible = false
 
 [node name="UserDrink" parent="." instance=ExtResource("6_683gw")]
-position = Vector2(781, 465)
+position = Vector2(830, 992)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NextActivityBtn" type="Button" parent="CanvasLayer"]
-offset_left = 1100.0
-offset_top = 590.0
-offset_right = 1142.0
-offset_bottom = 633.0
+offset_left = 1684.0
+offset_top = 1179.0
+offset_right = 1726.0
+offset_bottom = 1222.0
 text = ">"
 metadata/_edit_use_anchors_ = true
 

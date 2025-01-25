@@ -23,3 +23,7 @@ GameManager="*res://Util/game_manager.gd"
 window/size/viewport_width=1754
 window/size/viewport_height=1240
 window/stretch/mode="viewport"
+
+[global_group]
+
+drop_spots=""

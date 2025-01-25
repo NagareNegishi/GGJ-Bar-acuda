@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mwo1l0lk7vhq"]
+
+[ext_resource type="Texture2D" uid="uid://jt3acdyhxt7t" path="res://icon.svg" id="1_mk0o8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sddur"]
+
+[node name="Ice" type="Sprite2D"]
+texture = ExtResource("1_mk0o8")
+
+[node name="IceArea" type="Area2D" parent="."]
+scale = Vector2(6.425, 6.425)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceArea"]
+shape = SubResource("RectangleShape2D_sddur")
