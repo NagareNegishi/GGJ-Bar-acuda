@@ -1,6 +1,8 @@
 extends Node
 class_name FishPictureBook
 
+# Class for storing fish images
+
 var fish_images = {
 	"FISH": [
 		preload("res://Scenes/Game/Fish/temp fish images/casualfish00.png"),
@@ -16,6 +18,7 @@ var fish_images = {
 	]
 }
 
+# return a random fish sprite
 func get_random_fish_sprite(type: String) -> Texture2D:
 	var images = fish_images[type]
 	return images[randi() % images.size()]

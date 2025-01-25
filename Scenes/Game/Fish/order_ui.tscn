@@ -5,22 +5,29 @@
 
 [node name="OrderUI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchor_top = 0.327
+anchor_right = 0.398
+anchor_bottom = 1.0
 offset_left = 2.0
-offset_top = 323.0
-offset_right = 362.0
-offset_bottom = 647.0
+offset_top = 0.103989
+offset_right = 0.503967
+offset_bottom = -1.0
 script = ExtResource("1_sqp3i")
 
 [node name="TextContainer" type="Sprite2D" parent="."]
-position = Vector2(179, 162)
-scale = Vector2(0.264405, 0.357416)
+position = Vector2(226, 184.386)
+scale = Vector2(0.339833, 0.407664)
 texture = ExtResource("2_qnw58")
 
 [node name="TextLabel" type="Label" parent="TextContainer"]
 modulate = Color(0.0142752, 0.0142752, 0.0142752, 1)
-offset_left = -556.0
-offset_top = -218.0
-offset_right = 492.0
-offset_bottom = 283.0
+anchors_preset = -1
+anchor_left = 0.113
+anchor_top = 0.255
+anchor_right = 0.843
+anchor_bottom = 0.851
+offset_left = -730.268
+offset_top = -473.205
+offset_right = -639.548
+offset_bottom = -425.241
 theme_override_font_sizes/font_size = 76

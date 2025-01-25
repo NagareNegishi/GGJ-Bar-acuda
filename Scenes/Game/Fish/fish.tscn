@@ -13,16 +13,16 @@ corner_radius_bottom_left = 50
 script = ExtResource("1_hi8q4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(167, 125)
-scale = Vector2(0.066053, 0.048813)
+position = Vector2(234, 156)
+scale = Vector2(0.0782461, 0.05711)
 texture = ExtResource("2_rnt3d")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
-offset_left = 224.0
-offset_top = 5.0
-offset_right = 478.0
-offset_bottom = 179.0
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 459.0
+offset_bottom = 109.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_87wp1")
 
 [node name="Label" type="Label" parent="Panel"]

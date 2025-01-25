@@ -21,7 +21,7 @@ const BAD_COMMENTS = [
 	"Are you sea-rious? \nThis isn't what I ordered.",
 	"Are you shore \nthis is what I ordered?",
 	"You're really floundering, \naren't you?",
-	"My disappointment is immeasurable \nand my day is ruined.",
+	"My disappointment \nis immeasurable \nand my day is ruined.",
 ]
 
 const WAITING_COMMENTS = [
@@ -51,19 +51,10 @@ signal left_shop()
 @onready var label = $Panel/Label
 
 
-
 enum Type { ## type of fish, turtle??
 	FISH,
 	TURTLE
 }
-
-"enum State { # emotions for reaction??
-	ENTERING,
-	BROWSING,
-	ORDERING,
-	WAITING,
-	LEAVING
-}"
 
 var type: Type
 var is_adult: bool
@@ -205,7 +196,7 @@ func convert_glass(glass: Order.Glass) -> GlassTypes:
 
 func convert_ice(ice: Order.Ice) -> IceTypes:
 	match ice:
-		Order.Ice.NONE: return IceTypes.NONE
+		Order.Ice.NO: return IceTypes.NONE
 		Order.Ice.LIGHT: return IceTypes.ONE
 		Order.Ice.REGULAR, Order.Ice.EXTRA: return IceTypes.TWO
 	return IceTypes.NONE

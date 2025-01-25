@@ -27,7 +27,7 @@ enum Glass {
 }
 
 enum Ice {
-	NONE,
+	NO,
 	LIGHT,
 	REGULAR,
 	EXTRA
@@ -52,13 +52,11 @@ var ice: Ice
 var soda: Soda
 var straw: Straw
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	generate_random()
 
-
+# randomize the order
 func generate_random():
 	randomize()
 	glass = Glass.values()[randi() % Glass.size()]
@@ -66,6 +64,7 @@ func generate_random():
 	soda = Soda.values()[randi() % Soda.size()]
 	straw = Straw.values()[randi() % Straw.size()]
 
+# convert the order to a string with random comments
 func PrintOut(is_adult: bool = true) -> String:
 	var details = "%s \nin a %s glass \nwith %s ice \nand %s straw" % [
 		Soda.keys()[soda],
@@ -73,7 +72,6 @@ func PrintOut(is_adult: bool = true) -> String:
 		Ice.keys()[ice],
 		Straw.keys()[straw]	
 	]
-
 	var comment: String
 	if is_adult:
 		comment = COMMENTS[randi() % COMMENTS.size()]
