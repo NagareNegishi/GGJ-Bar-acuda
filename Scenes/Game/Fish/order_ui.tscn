@@ -9,14 +9,14 @@ anchor_top = 0.327
 anchor_right = 0.398
 anchor_bottom = 1.0
 offset_left = 2.0
-offset_top = 0.103989
-offset_right = 0.503967
-offset_bottom = -1.0
+offset_top = 0.519958
+offset_right = 0.907959
+offset_bottom = -39.0
 script = ExtResource("1_sqp3i")
 
 [node name="TextContainer" type="Sprite2D" parent="."]
-position = Vector2(226, 184.386)
-scale = Vector2(0.339833, 0.407664)
+position = Vector2(345.5, 388.386)
+scale = Vector2(0.506267, 0.865577)
 texture = ExtResource("2_qnw58")
 
 [node name="TextLabel" type="Label" parent="TextContainer"]
@@ -30,4 +30,18 @@ offset_left = -730.268
 offset_top = -473.205
 offset_right = -639.548
 offset_bottom = -425.241
+theme_override_constants/line_spacing = -10
+theme_override_font_sizes/font_size = 76
+
+[node name="Name" type="Label" parent="TextContainer"]
+modulate = Color(0.266681, 0.726276, 0.921, 1)
+anchors_preset = -1
+anchor_left = 0.113
+anchor_top = 0.069
+anchor_right = 0.467
+anchor_bottom = 0.187
+offset_left = -643.239
+offset_top = -439.707
+offset_right = -648.583
+offset_bottom = -439.845
 theme_override_font_sizes/font_size = 76

@@ -41,7 +41,7 @@ const WAITING_COMMENTS = [
 ]
 
 
-signal display_order(item_name: String)
+signal display_order(item_name: String, fish_name: String)
 signal place_order()
 signal pay(amount: int)
 signal left_shop()
@@ -49,6 +49,9 @@ signal left_shop()
 @onready var sprite = $Sprite2D
 @onready var panel = $Panel
 @onready var label = $Panel/Label
+@onready var satisfaction_timer = $SatisfactionTimer
+@onready var satisfaction_bar_bg = $SatisfactionBar/Background
+@onready var satisfaction_bar_fill = $SatisfactionBar/Fill
 
 
 enum Type { ## type of fish, turtle??
@@ -62,9 +65,14 @@ var order: Order
 var drink
 var satisfaction: int = 100  # 0-100
 var threshold: int = 70
-var deduction_per_mismatch = 15
+var deduction_per_mismatch = 10
 var comment: String
-#var state: State = State.ENTERING
+var fish_name: String
+
+# animation
+var start_position: Vector2
+var end_position: Vector2
+var tween: Tween
 
 
 
@@ -73,17 +81,63 @@ func _ready():
 	order = Order.new()
 	order.generate_random()
 	set_sprite()
+
+	# Setup positions
+	setup_position()
+	# set up the timer
+	setup_timer()
+
 	request_order()
 
+# Setup position
+func setup_position():
+	start_position = Vector2(-100, position.y)  # Start off-screen left
+	end_position = Vector2(position.x, position.y)  # Current position is end position
+	position = start_position
+	modulate.a = 0  # Start fully transparent
+	enter_animation()
 
+# set the timer
+func setup_timer():
+	satisfaction_timer = Timer.new()
+	satisfaction_timer.wait_time = 1.0
+	satisfaction_timer.connect("timeout", _on_satisfaction_timer_timeout)
+	add_child(satisfaction_timer)
+	satisfaction_timer.start()
+
+
+# Decrease satisfaction over time
+func _on_satisfaction_timer_timeout():
+	satisfaction = max(0, satisfaction - 1)  # Prevent going below 0
+	print("Satisfaction: %d" % satisfaction)
+	update_satisfaction_bar()
+
+# update the satisfaction bar
+func update_satisfaction_bar():
+	var filled_height = (satisfaction / 100.0) * 200
+	satisfaction_bar_fill.position.y = satisfaction_bar_bg.position.y + (200 - filled_height)
+	satisfaction_bar_fill.size.y = filled_height
+	var t = satisfaction / 100.0
+	satisfaction_bar_fill.color = Color(
+		lerp(0.8, 0.2, t),
+		lerp(0.2, 0.8, t),
+		0.2,
+		0.8
+	)
+
+# set the sprite based on the type
 func set_sprite():
 	var fish_picture_book = FishPictureBook.new()
-	sprite.texture = fish_picture_book.get_random_fish_sprite(Type.keys()[type])
+	var texture = fish_picture_book.get_random_fish_sprite(Type.keys()[type])
+	sprite.texture = texture
+	# Extract name from texture path
+	fish_name = texture.resource_path.get_file().trim_suffix(".png").trim_suffix("00").trim_suffix("01").trim_suffix("02")
+
 
 
 # display the order in UI and place the order to the shop
 func request_order():
-	display_order.emit(order.PrintOut(is_adult))
+	display_order.emit(order.PrintOut(is_adult), fish_name)
 	place_order.emit()
 
 # receive the drink from the shop
@@ -119,7 +173,7 @@ func generate_comment():
 		comment = GOOD_COMMENTS[randi() % GOOD_COMMENTS.size()]
 	else:
 		comment = BAD_COMMENTS[randi() % BAD_COMMENTS.size()]
-	display_order.emit(comment)
+	display_order.emit(comment, fish_name)
 
 # pay the order
 "to global? shop?"
@@ -129,10 +183,24 @@ func make_payment():
 
 # leave the shop
 func leave_shop():
+	# Stop the satisfaction timer
+	satisfaction_timer.stop()
+	# Reverse the enter animation
+	tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, "position", start_position, 1.0).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "modulate:a", 0.0, 0.8)
+	# Wait for animation to finish before freeing
+	await tween.finished
 	left_shop.emit()
 	queue_free()
 
-
+# animation enter
+func enter_animation():
+	tween = create_tween()
+	tween.set_parallel(true)  # Allow multiple properties to animate simultaneously
+	tween.tween_property(self, "position", end_position, 1.0).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "modulate:a", 1.0, 0.8)
 
 
 

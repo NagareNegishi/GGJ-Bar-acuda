@@ -25,8 +25,8 @@ script = ExtResource("1_bmfd1")
 fish_scene = ExtResource("2_fe38g")
 
 [node name="BackGround" type="Sprite2D" parent="."]
-position = Vector2(572.959, 325.141)
-scale = Vector2(0.326135, 0.261176)
+position = Vector2(876.959, 618.141)
+scale = Vector2(0.499453, 0.497467)
 texture = ExtResource("3_w8wgg")
 
 [node name="Button" type="Button" parent="BackGround"]
@@ -37,28 +37,28 @@ offset_bottom = -333.406
 text = "spawn fish"
 
 [node name="CommentBackGround" type="Sprite2D" parent="BackGround"]
-position = Vector2(0.126, -685.387)
-scale = Vector2(1, 2.12438)
+position = Vector2(0.126, -806.741)
+scale = Vector2(1, 2.22225)
 texture = ExtResource("4_5mtq4")
 
 [node name="SideBar" type="Sprite2D" parent="BackGround"]
-position = Vector2(-334.091, -11.4862)
-scale = Vector2(1, 1.00245)
+position = Vector2(-334.091, -4.60737)
+scale = Vector2(1, 1.00756)
 texture = ExtResource("5_e50j0")
 
 [node name="OrderUI" parent="." instance=ExtResource("4_re5ye")]
-offset_left = 1.0
-offset_top = 265.0
-offset_right = 464.0
-offset_bottom = 648.0
+offset_left = -8.0
+offset_top = 448.0
+offset_right = 711.0
+offset_bottom = 1171.0
 
 [node name="Fish_PictureBook" parent="." instance=ExtResource("5_yirsa")]
 
 [node name="RejectButton" type="Button" parent="."]
-offset_left = 98.0
-offset_top = 589.0
-offset_right = 336.0
-offset_bottom = 665.0
+offset_left = -36.0
+offset_top = 1148.0
+offset_right = 297.0
+offset_bottom = 1254.0
 focus_mode = 0
 theme_override_styles/disabled = SubResource("StyleBoxTexture_upct5")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_upct5")

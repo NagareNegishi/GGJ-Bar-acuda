@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtvihrq41d87k" path="res://Scenes/Game/Fish/temp fish images/casualfish00.png" id="2_rnt3d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87wp1"]
+bg_color = Color(0.622297, 0.626323, 0.168715, 0.529412)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -13,20 +14,20 @@ corner_radius_bottom_left = 50
 script = ExtResource("1_hi8q4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(234, 156)
-scale = Vector2(0.0782461, 0.05711)
+position = Vector2(364, 282)
+scale = Vector2(0.119206, 0.0903434)
 texture = ExtResource("2_rnt3d")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
 offset_left = 11.0
 offset_top = 15.0
-offset_right = 459.0
-offset_bottom = 109.0
+offset_right = 706.0
+offset_bottom = 253.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_87wp1")
 
 [node name="Label" type="Label" parent="Panel"]
-modulate = Color(0.792157, 0.329412, 0.329412, 1)
+modulate = Color(0.456309, 0.00167919, 0.681136, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.085
@@ -37,11 +38,27 @@ offset_left = -1.58999
 offset_top = -1.354
 offset_right = -1.802
 offset_bottom = -1.36
-theme_override_font_sizes/font_size = 25
-text = "aaaaaaaaaaa"
+theme_override_font_sizes/font_size = 40
+text = "Hello"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 10.0
 autostart = true
+
+[node name="SatisfactionBar" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="SatisfactionBar"]
+offset_left = 560.0
+offset_top = 260.0
+offset_right = 610.0
+offset_bottom = 460.0
+
+[node name="Fill" type="ColorRect" parent="SatisfactionBar"]
+offset_left = 560.0
+offset_top = 260.0
+offset_right = 610.0
+offset_bottom = 460.0
+
+[node name="SatisfactionTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
