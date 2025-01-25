@@ -1,6 +1,23 @@
 extends Node
-
 class_name Order
+
+const COMMENTS = [
+    "One drink, please. Pacifically, \na <order>",
+    "I'm sea-riously thirsty. \nI'll have a <order>",
+    "I'm sick of always drinking water. \nGive me a <order>",
+    "Shorely you can make me \na <order>?",
+    "A <order>, \nplease. Hold the salt.",
+    "I wish for some nautical nonsense. \nHow about a <order>?",
+    "I'm looking for a <order>, \nif that's up for crabs?",
+    "I just got out of seabed. \nA <order> \nwould wake me up.",
+    "In light of current events, \nI'm desperate for a <order>.",
+    "What does a fish have to do to \nget a <order> \naround here?"
+]
+
+const ChildCOMMENTS = [
+	"I want a <order> \nso I grow up big and strong!",
+	"Mum says I'm allowed to get \na <order>!"
+]
 
 enum Glass {
 	MILKSHAKE,
@@ -49,10 +66,17 @@ func generate_random():
 	soda = Soda.values()[randi() % Soda.size()]
 	straw = Straw.values()[randi() % Straw.size()]
 
-func PrintOut() -> String:
-	return "%s \nin a %s glass \nwith %s ice \nand %s straw" % [
+func PrintOut(is_adult: bool = true) -> String:
+	var details = "%s \nin a %s glass \nwith %s ice \nand %s straw" % [
 		Soda.keys()[soda],
 		Glass.keys()[glass],
 		Ice.keys()[ice],
 		Straw.keys()[straw]	
 	]
+
+	var comment: String
+	if is_adult:
+		comment = COMMENTS[randi() % COMMENTS.size()]
+	else:
+		comment = ChildCOMMENTS[randi() % ChildCOMMENTS.size()]
+	return comment.replace("<order>", details)

@@ -43,7 +43,8 @@ func _on_button_pressed():
 
 
 	if current_fish != null:
-		current_fish.make_payment()
+		current_fish.receive_drink(current_fish.order.PrintOut(current_fish.is_adult))
+		await get_tree().create_timer(1.0).timeout
 		current_fish.leave_shop()
 
 

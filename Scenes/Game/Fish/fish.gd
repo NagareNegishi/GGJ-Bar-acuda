@@ -1,6 +1,44 @@
 extends Node2D
-
 class_name Fish
+
+const GOOD_COMMENTS = [
+	"Thanks, sea you next time!",
+	"Ahhhh, this will tide me over.",
+	"Now I just need to figure out how to drink this.",
+	"This soda is pretty sharp. I'm hooked!",
+	"Wow, this place is gonna make waves.",
+	"Mmmm, that's worth shelling out for.", 
+	"This is the best drink in the shoal world!",
+	"This drink is good for the sole.",
+	"O, for tuna!",
+	"Delicious! That's a real breath of fresh water.",
+	"This will go down swimmingly."
+]
+
+const BAD_COMMENTS = [
+	"I expected batter from you.",
+	"What a waste. I don't even have taste buds.",
+	"Are you sea-rious? This isn't what I ordered.",
+	"Are you shore this is what I ordered?",
+	"You're really floundering, aren't you?",
+	"My disappointment is immeasurable and my day is ruined.",
+]
+
+const WAITING_COMMENTS = [
+	"Water you doing \nback there??",
+	"I'm waiting \nwith baited breath.",
+	"Is there anything \nI can do to kelp?",
+	"I hope \nthe Mollusk Dew \ndoesn't attract \nany sharks.",
+	"Not to be salty, \nbut this is \ntaking a while.",
+	"I hope \nyou don't mind me \npiering in.",
+	"Do you sell any merch? \nI need a new t-shirt.",
+	"You've never \ndone this before, \nhave you?",
+	"Rest in peace, \nStephen Hillenburg.",
+	"Imagine if physics \napplied to \nanthropomorphic \nsea life.",
+	"Life's a beach, \nand then you die.",
+	"I'm a Pisces.",
+	"I think Jaws is \none of Spielberg's \nweakest films.",
+]
 
 
 signal display_order(item_name: String)
@@ -9,6 +47,10 @@ signal pay(amount: int)
 signal left_shop()
 
 @onready var sprite = $Sprite2D
+@onready var panel = $Panel
+@onready var label = $Panel/Label
+
+
 
 enum Type { ## type of fish, turtle??
 	FISH,
@@ -28,6 +70,7 @@ var is_adult: bool
 var order: Order
 var drink: String #Drink
 var satisfaction: int = 100  # 0-100
+var threshold: int = 70
 var comment: String
 #var state: State = State.ENTERING
 
@@ -48,7 +91,7 @@ func set_sprite():
 
 # display the order in UI and place the order to the shop
 func request_order():
-	display_order.emit(order.PrintOut())
+	display_order.emit(order.PrintOut(is_adult))
 	place_order.emit()
 
 # receive the drink from the shop
@@ -57,6 +100,7 @@ func receive_drink(drink: String):
 	print("Received drink: %s" % drink)
 	calculate_satisfaction()
 	generate_comment()
+	await get_tree().create_timer(5.0).timeout
 	make_payment()
 
 # calculate the satisfaction based on the drink
@@ -69,10 +113,10 @@ func calculate_satisfaction():
 
 # make a comment about the drink
 func generate_comment():
-	if satisfaction == 100:
-		comment = "Delicious!"
+	if satisfaction >= threshold:
+		comment = GOOD_COMMENTS[randi() % GOOD_COMMENTS.size()]
 	else:
-		comment = "Yuck!"
+		comment = BAD_COMMENTS[randi() % BAD_COMMENTS.size()]
 	display_order.emit(comment)
 
 # pay the order
@@ -101,3 +145,9 @@ func get_info() -> String:
 		satisfaction,
 		order.PrintOut()
 	]
+
+func _on_timer_timeout():
+	panel.visible = true
+	label.text = WAITING_COMMENTS[randi() % WAITING_COMMENTS.size()]
+	await get_tree().create_timer(5.0).timeout
+	panel.visible = false
