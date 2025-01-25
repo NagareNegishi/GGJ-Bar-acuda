@@ -9,27 +9,37 @@ enum ActivityStates{
 
 @onready var user_drink = $UserDrink
 
+@onready var glass_selection = $GlassesCupsBottles
+@onready var soda_machine = $SodaMachine
+@onready var ice_machine = $IceMachine
+@onready var straw_selection = $StrawSelection
+
 #var activity = [$GlassesCupsBottles, $SodaMachine, $IceMachine, $StrawSelection]
 var curr_act_state =  ActivityStates.GLASS;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	user_drink.hide()
+	soda_machine._disable_snapping()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	match curr_act_state :
-		ActivityStates.GLASS : 
+		ActivityStates.GLASS :
+			#user_drink.disable_drag()
 			$GlassesCupsBottles.show()
 			$SodaMachine.hide()
 			$IceMachine.hide()
 			$StrawSelection.hide()
 		ActivityStates.SODA :
+			#user_drink.enable_drag()
+			soda_machine._enable_snapping()
 			$GlassesCupsBottles.hide()
 			$SodaMachine.show()
 			$IceMachine.hide()
 			$StrawSelection.hide()
 		ActivityStates.ICE :
+			soda_machine._disable_snapping()
 			$GlassesCupsBottles.hide()
 			$SodaMachine.hide()
 			$IceMachine.show()
@@ -111,6 +121,12 @@ func _check_valid() -> bool:
 			return true
 				
 	return false
+
+func _disable_drag() -> void:
+	pass
+	
+func _enable_drag() -> void:
+	pass
 
 
 func _on_serve_drink_btn_pressed() -> void:

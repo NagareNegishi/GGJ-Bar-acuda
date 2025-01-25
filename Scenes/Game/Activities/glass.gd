@@ -4,13 +4,14 @@ extends Sprite2D
 #(tried switching to area 2d for this, but the collision shape was returning a weird rect and it didn't work)
 
 var is_dragging = false
+var is_drag_enabled = false
 var mouse_offset
 var delay = 5
 
 var drop_spots
 
 func _physics_process(delta: float) -> void:
-	if is_dragging == true:
+	if is_dragging:
 		var tween = get_tree().create_tween()
 		tween.tween_property(get_parent(), "position", get_global_mouse_position()-mouse_offset, delay * delta)
 		

@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://01glyyjjfhfy"]
+[gd_scene load_steps=4 format=3 uid="uid://01glyyjjfhfy"]
 
+[ext_resource type="Script" path="res://Scenes/Game/Activities/soda_machine.gd" id="1_8vrlw"]
 [ext_resource type="Texture2D" uid="uid://btj36cs5rj8en" path="res://Assets/Images/sodamachineWITHbuttons.png" id="1_lkusv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7xjj"]
 size = Vector2(87, 261)
 
 [node name="SodaMachine" type="Node2D"]
+script = ExtResource("1_8vrlw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 462.0
@@ -62,8 +64,8 @@ offset_top = 244.0
 offset_right = 983.0
 offset_bottom = 308.0
 
-[node name="SarsaDropZone" type="Area2D" parent="LPBtn" groups=["drop_spots"]]
+[node name="LPDropZone" type="Area2D" parent="LPBtn" groups=["drop_spots"]]
 position = Vector2(36, 200)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LPBtn/SarsaDropZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LPBtn/LPDropZone"]
 shape = SubResource("RectangleShape2D_f7xjj")
