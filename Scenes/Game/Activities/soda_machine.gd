@@ -30,9 +30,9 @@ func _disable_snapping():
 	$LPBtn/LPDropZone.monitorable = false
 	$LPBtn/LPDropZone.monitoring = false
 	
-func _check_in_area() -> bool:
-	for ds in drop_spots:
-		if ds.get_overlapping_areas().has(get_tree().get_nodes_in_group("drink")[0]): #check if the user drink is in a drop spot, this is done bad, however I will not be fixing it
-			return true
+func _check_in_area(ds) -> bool:
+	#for ds in drop_spots:
+	if ds.get_overlapping_areas().has(get_tree().get_nodes_in_group("drink")[0]): #check if the user drink is in a drop spot, this is done bad, however I will not be fixing it
+		return true
 	return false
 	

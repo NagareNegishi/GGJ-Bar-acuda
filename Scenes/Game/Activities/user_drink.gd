@@ -11,12 +11,39 @@ var selected_glass := GlassTypes.NONE
 @onready var glass_sprite = $Glass
 
 @onready var default_png = preload("res://icon.svg")
+
 @onready var milk_png = preload("res://Assets/Images/Glasses/milkshakeglassNOwhiteline.png")
 @onready var sundae_png = preload("res://Assets/Images/Glasses/sundaeglassNOwhiteline.png")
 @onready var tall_png = preload("res://Assets/Images/Glasses/tallglassNOwhiteline.png")
 @onready var wide_png = preload("res://Assets/Images/Glasses/wideglassNOwhiteline.png")
 
 @onready var glass_images = [default_png, wide_png, tall_png, sundae_png, milk_png]
+
+@onready var m_g = preload("res://Assets/Images/SodaMachine/SodaColours/milkshakegreen.png")
+@onready var m_p = preload("res://Assets/Images/SodaMachine/SodaColours/milkshakepurple.png")
+@onready var m_r = preload("res://Assets/Images/SodaMachine/SodaColours/milkshakered.png")
+@onready var m_y = preload("res://Assets/Images/SodaMachine/SodaColours/milkshakeyellow.png")
+@onready var milk_soda = [m_g, m_r, m_p, m_y]
+
+@onready var s_g = preload("res://Assets/Images/SodaMachine/SodaColours/sundaegreen.png")
+@onready var s_p = preload("res://Assets/Images/SodaMachine/SodaColours/sundaepurple.png")
+@onready var s_r = preload("res://Assets/Images/SodaMachine/SodaColours/sundaered.png")
+@onready var s_y = preload("res://Assets/Images/SodaMachine/SodaColours/sundaeyellow.png")
+@onready var sun_soda = [s_g, s_r, s_p, s_y]
+
+@onready var t_g = preload("res://Assets/Images/SodaMachine/SodaColours/tallgreen.png")
+@onready var t_p = preload("res://Assets/Images/SodaMachine/SodaColours/tallpurple.png")
+@onready var t_r = preload("res://Assets/Images/SodaMachine/SodaColours/tallred.png")
+@onready var t_y = preload("res://Assets/Images/SodaMachine/SodaColours/tallyellow.png")
+@onready var tall_soda = [t_g, t_r, t_p, t_y]
+
+@onready var w_g = preload("res://Assets/Images/SodaMachine/SodaColours/widegreen.png")
+@onready var w_p = preload("res://Assets/Images/SodaMachine/SodaColours/widepurple.png")
+@onready var w_r = preload("res://Assets/Images/SodaMachine/SodaColours/widered.png")
+@onready var w_y = preload("res://Assets/Images/SodaMachine/SodaColours/wideyellow.png")
+@onready var wide_soda = [w_g, w_r, w_p, w_y]
+
+@onready var nested_soda_images = [wide_soda, tall_soda, sun_soda, milk_soda]
 
 enum SodaTypes {
 	NONE,
@@ -26,23 +53,25 @@ enum SodaTypes {
 	LP
 }
 var selected_soda := SodaTypes.NONE
-@onready var soda_sprite = $Glass/Soda
+@onready var soda_sprite = $Soda
 
-enum IceTypes{
+enum IceTypes{ #enums incase we get time to do different types
 	NONE = 0,
 	ONE = 1,
-	TWO = 2
+	TWO = 2,
+	THREE = 3
 }
 var no_of_ice = 0;
 var selected_ice := IceTypes.NONE
 @onready var ice_sprite = $Glass/Ice
 
-enum StrawTypes{
-	NONE,
-	STRAIGHT,
-	BENDY,
-	CURLY
+enum StrawTypes{ #enums incase we get time to do different types
+	NONE = 0,
+	ONE = 1,
+	TWO = 2,
+	THREE = 3
 }
+var no_of_straws = 0;
 var selected_straw := StrawTypes.NONE
 @onready var straw_sprite = $Glass/Straw
 		
