@@ -24,7 +24,7 @@ func _input(event: InputEvent) -> void:
 				mouse_offset = get_global_mouse_position()-global_position
 		else:
 			for ds in drop_spots:
-				if ds.get_overlapping_areas() and ds.get_overlapping_areas().has(self.get_node("../DrinkArea")): #this is if we want snapping
+				if ds.monitoring and ds.get_overlapping_areas() and ds.get_overlapping_areas().has(self.get_node("../DrinkArea")): #this is if we want snapping
 					var new_pos = ds.global_position
 					var tween = get_tree().create_tween()
 					tween.tween_property(get_parent(), "position", new_pos, 0.1)

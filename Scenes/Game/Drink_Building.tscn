@@ -22,7 +22,7 @@ visible = false
 visible = false
 
 [node name="UserDrink" parent="." instance=ExtResource("6_683gw")]
-position = Vector2(548, 585)
+position = Vector2(781, 465)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -50,8 +50,10 @@ text = "serve!"
 [connection signal="pressed" from="SodaMachine/SarsaBtn" to="." method="_on_sarsa_btn_pressed"]
 [connection signal="pressed" from="SodaMachine/MolluskBtn" to="." method="_on_mollusk_btn_pressed"]
 [connection signal="pressed" from="SodaMachine/LPBtn" to="." method="_on_lp_btn_pressed"]
+[connection signal="pressed" from="IceMachine/ColorRect2/1 ice" to="." method="_on__ice_pressed"]
 [connection signal="pressed" from="CanvasLayer/NextActivityBtn" to="." method="_on_next_activity_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/ServeDrinkBtn" to="." method="_on_serve_drink_btn_pressed"]
 
 [editable path="GlassesCupsBottles"]
 [editable path="SodaMachine"]
+[editable path="IceMachine"]

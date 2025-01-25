@@ -7,3 +7,11 @@ offset_left = 496.0
 offset_right = 1150.0
 offset_bottom = 645.0
 color = Color(0.406069, 0.720136, 0.958735, 1)
+
+[node name="1 ice" type="Button" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 277.0
+offset_right = 300.0
+offset_bottom = 308.0
+text = "1 ice"

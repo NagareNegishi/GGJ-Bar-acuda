@@ -33,6 +33,7 @@ enum IceTypes{
 	ONE = 1,
 	TWO = 2
 }
+var no_of_ice = 0;
 var selected_ice := IceTypes.NONE
 @onready var ice_sprite = $Glass/Ice
 

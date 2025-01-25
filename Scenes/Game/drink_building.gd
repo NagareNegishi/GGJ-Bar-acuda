@@ -82,20 +82,32 @@ func _on_milkshake_glass_btn_pressed() -> void:
 
 func _on_kelp_btn_pressed() -> void:
 	#check if soda is in the area
-	user_drink.selected_soda = user_drink.SodaTypes.KELPACOLA
-	print("kelp soda selected")
+	if soda_machine._check_in_area():
+		user_drink.selected_soda = user_drink.SodaTypes.KELPACOLA
+		print("kelp soda selected")
+	else:
+		print("no glass in the drink zone!!")
 
 func _on_sarsa_btn_pressed() -> void:
-	user_drink.selected_soda = user_drink.SodaTypes.SARSAKRILLA
-	print("sarsa soda selected")
+	if soda_machine._check_in_area():
+		user_drink.selected_soda = user_drink.SodaTypes.SARSAKRILLA
+		print("sarsa soda selected")
+	else:
+		print("no glass in the drink zone!!")
 	
 func _on_mollusk_btn_pressed() -> void:
-	user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
-	print("moll soda selected")
+	if soda_machine._check_in_area():
+		user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
+		print("moll soda selected")
+	else:
+		print("no glass in the drink zone!!")
 	
 func _on_lp_btn_pressed() -> void:
-	user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
-	print("moll soda selected")
+	if soda_machine._check_in_area():
+		user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
+		print("not l & p soda selected")
+	else:
+		print("no glass in the drink zone!!")
 
 func _on_next_activity_btn_pressed() -> void:
 	if _check_valid() && curr_act_state < 3:
@@ -135,3 +147,12 @@ func _on_serve_drink_btn_pressed() -> void:
 	curr_act_state = 0
 	$CanvasLayer/ServeDrinkBtn.hide()
 	$CanvasLayer/NextActivityBtn.show()
+
+
+func _on__ice_pressed() -> void:
+	if user_drink.no_of_ice >= 2:
+		print("you cannot possibly put more ice in this glass!")
+	else:
+		user_drink.no_of_ice+=1
+		user_drink.selected_ice = user_drink.IceTypes.keys()[user_drink.no_of_ice]
+	
