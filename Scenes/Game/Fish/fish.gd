@@ -97,6 +97,7 @@ func generate_comment():
 "to global? shop?"
 func make_payment():
 	pay.emit(satisfaction)
+	print("Paid %d" % satisfaction)
 
 # leave the shop
 func leave_shop():

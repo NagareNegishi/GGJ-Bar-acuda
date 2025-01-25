@@ -41,3 +41,10 @@ func _on_Fish_left():
 func _on_button_pressed():
 	spawn_fish()
 
+
+	if current_fish != null:
+		current_fish.make_payment()
+		current_fish = null
+
+
+
