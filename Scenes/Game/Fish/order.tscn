@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mc1p6u0nyabr"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Fish/order.gd" id="1_tqd6d"]
+
+[node name="Order" type="Node"]
+script = ExtResource("1_tqd6d")

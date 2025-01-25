@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cirk4wu4u37rq"]
+
+[ext_resource type="Script" path="res://Scenes/Game/game_record.gd" id="1_nxkpg"]
+
+[node name="GameRecord" type="Node"]
+script = ExtResource("1_nxkpg")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1c2xc66lqb8k"]
+[gd_scene load_steps=5 format=3 uid="uid://d1c2xc66lqb8k"]
 
 [ext_resource type="Script" path="res://Scenes/Game/main_game.gd" id="1_4tabr"]
 [ext_resource type="Texture2D" uid="uid://i83tovi5qa63" path="res://Assets/Images/conceptfish.png" id="2_idvkc"]
 [ext_resource type="PackedScene" uid="uid://b50eo3d735x12" path="res://Scenes/Game/Drink_Building.tscn" id="3_yiso3"]
+[ext_resource type="PackedScene" uid="uid://hfvontuhf1jo" path="res://Scenes/Game/Fish/fish_spawner.tscn" id="4_tnvso"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_4tabr")
@@ -14,3 +15,5 @@ texture = ExtResource("2_idvkc")
 expand_mode = 1
 
 [node name="DrinkBuilding" parent="." instance=ExtResource("3_yiso3")]
+
+[node name="FishSpawner" parent="." instance=ExtResource("4_tnvso")]
