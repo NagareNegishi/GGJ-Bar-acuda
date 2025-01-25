@@ -105,11 +105,7 @@ func receive_drink(drink: String):
 
 # calculate the satisfaction based on the drink
 func calculate_satisfaction():
-	if drink == order.PrintOut():       										#######"need to compare the drink and the order"
-		satisfaction = 100
-	else:
-		satisfaction = 0                                                        ########### too harsh
-	print("Satisfaction: %d" % satisfaction)
+	pass
 
 # make a comment about the drink
 func generate_comment():
