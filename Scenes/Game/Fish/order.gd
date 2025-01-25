@@ -50,7 +50,7 @@ func generate_random():
 	straw = Straw.values()[randi() % Straw.size()]
 
 func PrintOut() -> String:
-	return "%s in a %s glass with %s ice and %s straw" % [
+	return "%s \nin a %s glass \nwith %s ice \nand %s straw" % [
 		Soda.keys()[soda],
 		Glass.keys()[glass],
 		Ice.keys()[ice],

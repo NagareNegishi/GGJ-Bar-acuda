@@ -1,10 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://vgso8pxvvl6f"]
+[gd_scene load_steps=3 format=3 uid="uid://vgso8pxvvl6f"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Fish/order_ui.gd" id="1_sqp3i"]
+[ext_resource type="Texture2D" uid="uid://cuh48cyul1m2j" path="res://Scenes/Game/Fish/tempimage/textbox.png" id="2_qnw58"]
 
 [node name="OrderUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 183.0
-offset_bottom = 157.0
+offset_left = 2.0
+offset_top = 323.0
+offset_right = 362.0
+offset_bottom = 647.0
 script = ExtResource("1_sqp3i")
+
+[node name="TextContainer" type="Sprite2D" parent="."]
+position = Vector2(179, 162)
+scale = Vector2(0.264405, 0.357416)
+texture = ExtResource("2_qnw58")
+
+[node name="TextLabel" type="Label" parent="TextContainer"]
+modulate = Color(0.0142752, 0.0142752, 0.0142752, 1)
+offset_left = -556.0
+offset_top = -218.0
+offset_right = 492.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 76

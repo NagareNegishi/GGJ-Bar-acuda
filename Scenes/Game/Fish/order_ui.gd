@@ -1,21 +1,9 @@
 class_name OrderUI
 extends Control
 
+@onready var text_field = $TextContainer
+@onready var text_label = $TextContainer/TextLabel
 
-var text_display: RichTextLabel
 
-func _ready():
-    var panel = Panel.new()
-    panel.size = Vector2(300, 100)
-    
-    text_display = RichTextLabel.new()
-    text_display.position = Vector2(10, 10)
-    text_display.size = Vector2(280, 80)
-    text_display.bbcode_enabled = true
-    
-    panel.add_child(text_display)
-    add_child(panel)
-
-func display_text(message: String):
-    print("displaying text")
-    text_display.text = "[center]%s[/center]" % message
+func display_text(new_text: String):
+	text_label.text = new_text

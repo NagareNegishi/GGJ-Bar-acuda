@@ -29,7 +29,7 @@ texture = ExtResource("3_rfto8")
 [node name="OrderUI" parent="." instance=ExtResource("4_re5ye")]
 offset_left = 7.0
 offset_top = 315.0
-offset_right = 190.0
-offset_bottom = 472.0
+offset_right = 379.0
+offset_bottom = 644.0
 
 [connection signal="pressed" from="BackGround/Button" to="." method="_on_button_pressed"]
