@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://mwo1l0lk7vhq"]
+[gd_scene load_steps=4 format=3 uid="uid://mwo1l0lk7vhq"]
 
 [ext_resource type="Texture2D" uid="uid://jt3acdyhxt7t" path="res://icon.svg" id="1_mk0o8"]
+[ext_resource type="Script" path="res://Scenes/Game/Activities/draggable_ice.gd" id="2_f2l8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sddur"]
 
 [node name="Ice" type="Sprite2D"]
 texture = ExtResource("1_mk0o8")
+script = ExtResource("2_f2l8y")
 
 [node name="IceArea" type="Area2D" parent="."]
 scale = Vector2(6.425, 6.425)

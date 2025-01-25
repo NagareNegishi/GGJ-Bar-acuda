@@ -63,7 +63,7 @@ func _on_wide_glass_btn_pressed() -> void:
 func _on_tall_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.TALL
 	user_drink.glass_sprite.texture = user_drink.glass_images[user_drink.GlassTypes.TALL]
-	user_drink.glass_sprite.show()
+	user_drink.show()
 	print("tall glass selected")
 
 func _on_sundae_glass_btn_pressed() -> void:
@@ -149,7 +149,7 @@ func _on_serve_drink_btn_pressed() -> void:
 	$CanvasLayer/NextActivityBtn.show()
 
 
-func _on__ice_pressed() -> void:
+func _add_ice() -> void:
 	if user_drink.no_of_ice >= 2:
 		print("you cannot possibly put more ice in this glass!")
 	else:

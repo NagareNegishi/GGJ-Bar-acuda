@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd6ilyoqex07l"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Activities/user_drink.gd" id="1_dfh6d"]
-[ext_resource type="Texture2D" uid="uid://bmdxgvyjxt1gh" path="res://Assets/Images/Glasses/tallglass.png" id="2_p1wi4"]
+[ext_resource type="Texture2D" uid="uid://jt3acdyhxt7t" path="res://icon.svg" id="2_eav2q"]
 [ext_resource type="Script" path="res://Scenes/Game/Activities/glass.gd" id="3_asv1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ood2k"]
@@ -13,7 +13,7 @@ script = ExtResource("1_dfh6d")
 [node name="Glass" type="Sprite2D" parent="."]
 position = Vector2(0, 24)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_p1wi4")
+texture = ExtResource("2_eav2q")
 script = ExtResource("3_asv1u")
 
 [node name="Soda" type="Sprite2D" parent="Glass"]
