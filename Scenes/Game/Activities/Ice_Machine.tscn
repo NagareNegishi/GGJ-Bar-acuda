@@ -1,17 +1,40 @@
-[gd_scene format=3 uid="uid://b2i1bkjfm3q5d"]
+[gd_scene load_steps=5 format=3 uid="uid://b2i1bkjfm3q5d"]
+
+[ext_resource type="Texture2D" uid="uid://dgomg1fwbl20o" path="res://Assets/Images/backgrounds/extrabackground.png" id="1_jyrie"]
+[ext_resource type="Texture2D" uid="uid://duvvr2axvpodi" path="res://Assets/Images/DrinkOptions/icebucket.png" id="2_1123j"]
+[ext_resource type="Script" path="res://Scenes/Game/Activities/icebucket.gd" id="3_nv3gf"]
+[ext_resource type="Texture2D" uid="uid://did1skur5krwt" path="res://Assets/Images/DrinkOptions/straws.png" id="3_rcv4o"]
 
 [node name="IceMachine" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_jyrie")
+
+[node name="1 ice" type="Button" parent="."]
+visible = false
+offset_left = 753.0
+offset_top = 277.0
+offset_right = 796.0
+offset_bottom = 308.0
+text = "1 ice"
+
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 offset_left = 496.0
 offset_right = 1150.0
 offset_bottom = 645.0
 color = Color(0.406069, 0.720136, 0.958735, 1)
 
-[node name="1 ice" type="Button" parent="ColorRect2"]
-layout_mode = 0
-offset_left = 257.0
-offset_top = 277.0
-offset_right = 300.0
-offset_bottom = 308.0
-text = "1 ice"
+[node name="Icebucket" type="Sprite2D" parent="."]
+position = Vector2(937, 928)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_1123j")
+script = ExtResource("3_nv3gf")
+
+[node name="Strawbucket" type="Sprite2D" parent="."]
+position = Vector2(1577, 952)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_rcv4o")
