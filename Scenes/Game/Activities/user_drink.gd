@@ -1,6 +1,5 @@
 extends Node2D
 
-
 enum GlassTypes {
 	NONE,
 	SHORT,
@@ -37,10 +36,13 @@ enum StrawTypes{
 }
 var selected_straw := StrawTypes.NONE
 @onready var straw_sprite = $Glass/Straw
+		
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	glass_sprite.hide()
+	pass
+	#glass_sprite.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
