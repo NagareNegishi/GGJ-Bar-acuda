@@ -1,9 +1,71 @@
-[gd_scene format=3 uid="uid://01glyyjjfhfy"]
+[gd_scene load_steps=4 format=3 uid="uid://01glyyjjfhfy"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Activities/soda_machine.gd" id="1_8vrlw"]
+[ext_resource type="Texture2D" uid="uid://btj36cs5rj8en" path="res://Assets/Images/sodamachineWITHbuttons.png" id="1_lkusv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7xjj"]
+size = Vector2(87, 261)
 
 [node name="SodaMachine" type="Node2D"]
+script = ExtResource("1_8vrlw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 704.0
+offset_left = 462.0
 offset_right = 1150.0
 offset_bottom = 645.0
-color = Color(0.808835, 0.227262, 0.441228, 1)
+color = Color(0.519064, 0.333938, 0.926351, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 159.0
+offset_right = 1077.0
+offset_bottom = 649.0
+texture = ExtResource("1_lkusv")
+expand_mode = 1
+
+[node name="KelpBtn" type="Button" parent="."]
+offset_left = 624.0
+offset_top = 244.0
+offset_right = 698.0
+offset_bottom = 308.0
+
+[node name="KelpDropZone" type="Area2D" parent="KelpBtn" groups=["drop_spots"]]
+position = Vector2(37, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KelpBtn/KelpDropZone"]
+shape = SubResource("RectangleShape2D_f7xjj")
+
+[node name="SarsaBtn" type="Button" parent="."]
+offset_left = 718.0
+offset_top = 244.0
+offset_right = 792.0
+offset_bottom = 308.0
+
+[node name="SarsaDropZone" type="Area2D" parent="SarsaBtn" groups=["drop_spots"]]
+position = Vector2(37, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SarsaBtn/SarsaDropZone"]
+shape = SubResource("RectangleShape2D_f7xjj")
+
+[node name="MolluskBtn" type="Button" parent="."]
+offset_left = 811.0
+offset_top = 244.0
+offset_right = 885.0
+offset_bottom = 308.0
+
+[node name="MollDropZone" type="Area2D" parent="MolluskBtn" groups=["drop_spots"]]
+position = Vector2(39, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MolluskBtn/MollDropZone"]
+shape = SubResource("RectangleShape2D_f7xjj")
+
+[node name="LPBtn" type="Button" parent="."]
+offset_left = 909.0
+offset_top = 244.0
+offset_right = 983.0
+offset_bottom = 308.0
+
+[node name="LPDropZone" type="Area2D" parent="LPBtn" groups=["drop_spots"]]
+position = Vector2(36, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LPBtn/LPDropZone"]
+shape = SubResource("RectangleShape2D_f7xjj")
