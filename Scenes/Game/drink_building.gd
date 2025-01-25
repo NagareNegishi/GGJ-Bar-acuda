@@ -44,23 +44,27 @@ func _process(delta: float) -> void:
 
 ###GLASS SELECTION###
 
-func _on_short_glass_btn_pressed() -> void:
-	user_drink.selected_glass = user_drink.GlassTypes.SHORT
+func _on_wide_glass_btn_pressed() -> void:
+	user_drink.selected_glass = user_drink.GlassTypes.WIDE
+	user_drink.glass_sprite.texture = user_drink.glass_images[user_drink.GlassTypes.WIDE]
 	user_drink.show()
 	print("short glass selected")
 
 func _on_tall_glass_btn_pressed() -> void:
 	user_drink.selected_glass = user_drink.GlassTypes.TALL
+	user_drink.glass_sprite.texture = user_drink.glass_images[user_drink.GlassTypes.TALL]
 	user_drink.glass_sprite.show()
 	print("tall glass selected")
 
-func _on_wine_glass_btn_pressed() -> void:
-	user_drink.selected_glass = user_drink.GlassTypes.WINE
+func _on_sundae_glass_btn_pressed() -> void:
+	user_drink.selected_glass = user_drink.GlassTypes.SUNDAE
+	user_drink.glass_sprite.texture = user_drink.glass_images[user_drink.GlassTypes.SUNDAE]
 	user_drink.show()
 	print("wine glass selected")
 
-func _on_float_glass_btn_pressed() -> void:
-	user_drink.selected_glass = user_drink.GlassTypes.FLOAT
+func _on_milkshake_glass_btn_pressed() -> void:
+	user_drink.selected_glass = user_drink.GlassTypes.MILK
+	user_drink.glass_sprite.texture = user_drink.glass_images[user_drink.GlassTypes.MILK]
 	user_drink.show()
 	print("float glass selected")
 	

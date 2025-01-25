@@ -2,13 +2,21 @@ extends Node2D
 
 enum GlassTypes {
 	NONE,
-	SHORT,
+	WIDE,
 	TALL,
-	WINE,
-	FLOAT
+	SUNDAE,
+	MILK
 }
 var selected_glass := GlassTypes.NONE
 @onready var glass_sprite = $Glass
+
+@onready var default_png = preload("res://icon.svg")
+@onready var milk_png = preload("res://Assets/Images/Glasses/milkshakeglassNOwhiteline.png")
+@onready var sundae_png = preload("res://Assets/Images/Glasses/sundaeglassNOwhiteline.png")
+@onready var tall_png = preload("res://Assets/Images/Glasses/tallglassNOwhiteline.png")
+@onready var wide_png = preload("res://Assets/Images/Glasses/wideglassNOwhiteline.png")
+
+@onready var glass_images = [default_png, wide_png, tall_png, sundae_png, milk_png]
 
 enum SodaTypes {
 	NONE,

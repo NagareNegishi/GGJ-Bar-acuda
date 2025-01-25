@@ -43,7 +43,7 @@ offset_right = 1150.0
 offset_bottom = 645.0
 color = Color(0.524456, 0.385668, 0.801462, 1)
 
-[node name="ShortGlassBtn" type="Button" parent="."]
+[node name="WideGlassBtn" type="Button" parent="."]
 offset_left = 966.0
 offset_top = 43.0
 offset_right = 1097.0
@@ -59,7 +59,7 @@ offset_bottom = 303.0
 theme_override_styles/hover = SubResource("StyleBoxTexture_6xyt5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hq0b1")
 
-[node name="WineGlassBtn" type="Button" parent="."]
+[node name="SundaeGlassBtn" type="Button" parent="."]
 offset_left = 644.0
 offset_top = 32.0
 offset_right = 775.0
@@ -67,7 +67,7 @@ offset_bottom = 303.0
 theme_override_styles/hover = SubResource("StyleBoxTexture_epce8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_exr2l")
 
-[node name="FloatGlassBtn" type="Button" parent="."]
+[node name="MilkshakeGlassBtn" type="Button" parent="."]
 offset_left = 479.0
 offset_top = 32.0
 offset_right = 610.0

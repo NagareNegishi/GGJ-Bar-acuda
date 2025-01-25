@@ -42,10 +42,10 @@ offset_right = 1141.0
 offset_bottom = 631.0
 text = "serve!"
 
-[connection signal="pressed" from="GlassesCupsBottles/ShortGlassBtn" to="." method="_on_short_glass_btn_pressed"]
+[connection signal="pressed" from="GlassesCupsBottles/WideGlassBtn" to="." method="_on_wide_glass_btn_pressed"]
 [connection signal="pressed" from="GlassesCupsBottles/TallGlassBtn" to="." method="_on_tall_glass_btn_pressed"]
-[connection signal="pressed" from="GlassesCupsBottles/WineGlassBtn" to="." method="_on_wine_glass_btn_pressed"]
-[connection signal="pressed" from="GlassesCupsBottles/FloatGlassBtn" to="." method="_on_float_glass_btn_pressed"]
+[connection signal="pressed" from="GlassesCupsBottles/SundaeGlassBtn" to="." method="_on_sundae_glass_btn_pressed"]
+[connection signal="pressed" from="GlassesCupsBottles/MilkshakeGlassBtn" to="." method="_on_milkshake_glass_btn_pressed"]
 [connection signal="pressed" from="SodaMachine/KelpBtn" to="." method="_on_kelp_btn_pressed"]
 [connection signal="pressed" from="SodaMachine/SarsaBtn" to="." method="_on_sarsa_btn_pressed"]
 [connection signal="pressed" from="SodaMachine/MolluskBtn" to="." method="_on_mollusk_btn_pressed"]
