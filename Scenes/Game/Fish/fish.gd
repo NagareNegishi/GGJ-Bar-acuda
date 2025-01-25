@@ -49,8 +49,10 @@ func _ready():
 	order = Order.new()
 	order.generate_random()
 	#set_random_sprite()
-	set_sprite()
-	print(order.PrintOut())
+	#set_sprite()
+
+	print("order is %s" % order.PrintOut())
+	request_order()
 
 """func set_random_sprite():
 	var images = fish_images[type]

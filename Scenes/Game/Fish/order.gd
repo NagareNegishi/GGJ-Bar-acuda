@@ -3,32 +3,31 @@ extends Node
 class_name Order
 
 enum Glass {
-	NONE,
-	GLASS1,
-	GLASS2,
-	GLASS3,
-	GLASS4
+	MILKSHAKE,
+	TALL,
+	SHORT,
+	STEMMED
 }
 
 enum Ice {
 	NONE,
 	LIGHT,
-	NORMAL,
+	REGULAR,
 	EXTRA
 }
 
 enum Soda {
-	NONE,
-	COLA,
-	LEMON,
-	ORANGE,
-	ROOTBEER
+	KELPA_COLA,
+	SQRSAKOLLA,
+	MOLLUSK_DEW,
+	LEMDN_AND_PROTOZOA
 }
 
 enum Straw {
-	NONE,
-	PLASTIC,
+	NO,
+	STRAIGHT,
 	PAPER,
+	CURLY
 }
 
 var glass: Glass
@@ -51,9 +50,9 @@ func generate_random():
 	straw = Straw.values()[randi() % Straw.size()]
 
 func PrintOut() -> String:
-	return "Glass: %s, Ice: %s, Soda: %s, Straw: %s" % [
+	return "%s in a %s glass with %s ice and %s straw" % [
+		Soda.keys()[soda],
 		Glass.keys()[glass],
 		Ice.keys()[ice],
-		Soda.keys()[soda],
-		Straw.keys()[straw]
+		Straw.keys()[straw]	
 	]

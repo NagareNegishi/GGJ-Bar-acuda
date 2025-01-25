@@ -1,15 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://hfvontuhf1jo"]
+[gd_scene load_steps=5 format=3 uid="uid://hfvontuhf1jo"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Fish/fish_spawner.gd" id="1_bmfd1"]
 [ext_resource type="PackedScene" uid="uid://nucutein2dvs" path="res://Scenes/Game/Fish/fish.tscn" id="2_fe38g"]
+[ext_resource type="Texture2D" uid="uid://jt3acdyhxt7t" path="res://icon.svg" id="3_rfto8"]
+[ext_resource type="PackedScene" uid="uid://vgso8pxvvl6f" path="res://Scenes/Game/Fish/order_ui.tscn" id="4_re5ye"]
 
 [node name="FishSpawner" type="Node2D"]
 script = ExtResource("1_bmfd1")
 fish_scene = ExtResource("2_fe38g")
 
-[node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(189, 153)
+scale = Vector2(2.89063, 2.41406)
+texture = ExtResource("3_rfto8")
+
+[node name="Button" type="Button" parent="BackGround"]
+offset_left = -44.627
+offset_top = 16.3625
+offset_right = 46.373
+offset_bottom = 47.3625
 text = "spawn fish"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="FishImage" type="Sprite2D" parent="BackGround"]
+position = Vector2(-0.345947, -10.9773)
+scale = Vector2(0.518919, 0.495146)
+texture = ExtResource("3_rfto8")
+
+[node name="OrderUI" parent="." instance=ExtResource("4_re5ye")]
+offset_left = 7.0
+offset_top = 315.0
+offset_right = 190.0
+offset_bottom = 472.0
+
+[connection signal="pressed" from="BackGround/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vgso8pxvvl6f"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Fish/order_ui.gd" id="1_sqp3i"]
+
+[node name="OrderUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 183.0
+offset_bottom = 157.0
+script = ExtResource("1_sqp3i")

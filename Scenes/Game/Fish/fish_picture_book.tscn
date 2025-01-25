@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cgprsn6ocf2ld"]
+[gd_scene load_steps=2 format=3 uid="uid://cgprsn6ocf2ld"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Fish/fish_picture_book.gd" id="1_msu6x"]
 
 [node name="Fish_PictureBook" type="Node"]
+script = ExtResource("1_msu6x")
