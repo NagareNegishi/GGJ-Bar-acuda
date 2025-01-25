@@ -13,6 +13,9 @@ enum ActivityStates{
 @onready var ice_machine = $IceMachine
 @onready var straw_selection = $StrawSelection
 
+@onready var ice = preload("res://Scenes/Game/Activities/ice.tscn")
+@onready var straw = preload("res://Scenes/Game/Activities/straw.tscn")
+
 #var activity = [$GlassesCupsBottles, $SodaMachine, $IceMachine, $StrawSelection]
 var curr_act_state =  ActivityStates.GLASS;
 # Called when the node enters the scene tree for the first time.
@@ -77,29 +80,33 @@ func _on_milkshake_glass_btn_pressed() -> void:
 
 func _on_kelp_btn_pressed() -> void:
 	#check if soda is in the area
-	if soda_machine._check_in_area():
+	if soda_machine._check_in_area($SodaMachine/KelpBtn/KelpDropZone):
 		user_drink.selected_soda = user_drink.SodaTypes.KELPACOLA
+		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][0]
 		print("kelp soda selected")
 	else:
 		print("no glass in the drink zone!!")
 
 func _on_sarsa_btn_pressed() -> void:
-	if soda_machine._check_in_area():
+	if soda_machine._check_in_area($SodaMachine/SarsaBtn/SarsaDropZone):
 		user_drink.selected_soda = user_drink.SodaTypes.SARSAKRILLA
+		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][1]
 		print("sarsa soda selected")
 	else:
 		print("no glass in the drink zone!!")
 	
 func _on_mollusk_btn_pressed() -> void:
-	if soda_machine._check_in_area():
+	if soda_machine._check_in_area($SodaMachine/MolluskBtn/MollDropZone):
 		user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
+		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][2]
 		print("moll soda selected")
 	else:
 		print("no glass in the drink zone!!")
 	
 func _on_lp_btn_pressed() -> void:
-	if soda_machine._check_in_area():
+	if soda_machine._check_in_area($SodaMachine/LPBtn/LPDropZone):
 		user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
+		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][3]
 		print("not l & p soda selected")
 	else:
 		print("no glass in the drink zone!!")
@@ -143,6 +150,10 @@ func _add_ice() -> void:
 		print("you cannot possibly put more ice in this glass!")
 	else:
 		print("added ice")
+		var i = ice.instantiate()
+		i.is_drag_enabled = false
+		i.position.y -= 30*user_drink.no_of_ice
+		user_drink.add_child(i)
 		user_drink.no_of_ice+=1
 		user_drink.selected_ice = user_drink.IceTypes.keys()[user_drink.no_of_ice]
 
@@ -151,6 +162,11 @@ func _add_straw() -> void:
 		print("you cannot possibly put more straws in this glass!")
 	else:
 		print("added straw")
+		var s = straw.instantiate()
+		s.is_drag_enabled = false
+		s.position.y -= 100 + 10*user_drink.no_of_straws
+		s.position.x -= 10*user_drink.no_of_straws
+		user_drink.add_child(s)
 		user_drink.no_of_straws+=1
 		user_drink.selected_straw = user_drink.StrawTypes.keys()[user_drink.no_of_straws]
 

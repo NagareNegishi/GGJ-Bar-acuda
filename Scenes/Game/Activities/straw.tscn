@@ -1,16 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://dl8pemds6q2g0"]
 
-[ext_resource type="Texture2D" uid="uid://jt3acdyhxt7t" path="res://icon.svg" id="1_gji5x"]
+[ext_resource type="Texture2D" uid="uid://dbt8gxnkrcbul" path="res://Assets/Images/DrinkOptions/straw.png" id="1_t457j"]
 [ext_resource type="Script" path="res://Scenes/Game/Activities/straw.gd" id="2_vby8v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sddur"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmrd3"]
+size = Vector2(38.2582, 95.8158)
 
 [node name="Straw" type="Sprite2D"]
-texture = ExtResource("1_gji5x")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_t457j")
 script = ExtResource("2_vby8v")
 
 [node name="StrawArea" type="Area2D" parent="."]
 scale = Vector2(6.425, 6.425)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StrawArea"]
-shape = SubResource("RectangleShape2D_sddur")
+position = Vector2(0.538847, -0.819938)
+shape = SubResource("RectangleShape2D_vmrd3")
