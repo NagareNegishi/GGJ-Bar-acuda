@@ -5,6 +5,7 @@ enum ActivityStates{
 	SODA = 1,
 	EXTRAS = 2,
 }
+signal serve_drink(user_drink: Dictionary)
 
 @onready var user_drink = $UserDrink
 
@@ -16,6 +17,7 @@ enum ActivityStates{
 @onready var ice = preload("res://Scenes/Game/Activities/ice.tscn")
 @onready var straw = preload("res://Scenes/Game/Activities/straw.tscn")
 
+
 #var activity = [$GlassesCupsBottles, $SodaMachine, $IceMachine, $StrawSelection]
 var curr_act_state =  ActivityStates.GLASS;
 # Called when the node enters the scene tree for the first time.
@@ -26,21 +28,24 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	match curr_act_state :
-		ActivityStates.GLASS :
-			#user_drink.disable_drag()
+	match curr_act_state:
+		ActivityStates.GLASS:
 			$GlassesCupsBottles.show()
 			$SodaMachine.hide()
 			$IceMachine.hide()
 			$StrawSelection.hide()
-		ActivityStates.SODA :
-			#user_drink.enable_drag()
+			$CanvasLayer/ServeDrinkBtn.hide()
+			$CanvasLayer/NextActivityBtn.show()
+
+		ActivityStates.SODA:
 			soda_machine._enable_snapping()
 			$GlassesCupsBottles.hide()
 			$SodaMachine.show()
 			$IceMachine.hide()
 			$StrawSelection.hide()
-		ActivityStates.EXTRAS :
+			$CanvasLayer/ServeDrinkBtn.hide()
+			$CanvasLayer/NextActivityBtn.show()
+		ActivityStates.EXTRAS:
 			soda_machine._disable_snapping()
 			$GlassesCupsBottles.hide()
 			$SodaMachine.hide()
@@ -48,6 +53,7 @@ func _process(delta: float) -> void:
 			$StrawSelection.hide()
 			$CanvasLayer/ServeDrinkBtn.show()
 			$CanvasLayer/NextActivityBtn.hide()
+			$CanvasLayer/ServeDrinkBtn.disabled = false
 			
 
 ###GLASS SELECTION###
@@ -138,11 +144,19 @@ func _enable_drag() -> void:
 
 
 func _on_serve_drink_btn_pressed() -> void:
-	#TO DO: drink comparrison (emit signal and compare enums?)
-	#reset user drink
-	curr_act_state = 0
-	$CanvasLayer/ServeDrinkBtn.hide()
-	$CanvasLayer/NextActivityBtn.show()
+	$CanvasLayer/ServeDrinkBtn.disabled = true
+	var drink_data = {
+		"glass": user_drink.selected_glass,
+		"soda": user_drink.selected_soda,
+		"ice": user_drink.selected_ice,
+		"straw": user_drink.selected_straw
+	}
+	emit_signal("serve_drink", drink_data)
+	user_drink._reset_drink()# reset drink
+
+
+
+
 
 
 func _add_ice() -> void:
@@ -153,6 +167,7 @@ func _add_ice() -> void:
 		var i = ice.instantiate()
 		i.is_drag_enabled = false
 		i.position.y -= 30*user_drink.no_of_ice
+		i.add_to_group("ice")
 		user_drink.add_child(i)
 		user_drink.no_of_ice+=1
 		user_drink.selected_ice = user_drink.IceTypes.keys()[user_drink.no_of_ice]
@@ -166,8 +181,7 @@ func _add_straw() -> void:
 		s.is_drag_enabled = false
 		s.position.y -= 100 + 10*user_drink.no_of_straws
 		s.position.x -= 10*user_drink.no_of_straws
+		s.add_to_group("straw")
 		user_drink.add_child(s)
 		user_drink.no_of_straws+=1
 		user_drink.selected_straw = user_drink.StrawTypes.keys()[user_drink.no_of_straws]
-
-	

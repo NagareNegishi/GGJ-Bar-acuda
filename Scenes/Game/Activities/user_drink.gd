@@ -87,3 +87,26 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _reset_drink() -> void:
+	# Reset selections
+	selected_glass = GlassTypes.NONE
+	selected_soda = SodaTypes.NONE
+	selected_ice = IceTypes.NONE
+	selected_straw = StrawTypes.NONE
+
+	# Reset counters
+	no_of_ice = 0
+	no_of_straws = 0
+
+	# Reset sprites
+	glass_sprite.texture = glass_images[GlassTypes.NONE]
+	soda_sprite.texture = null
+
+	# Remove ice and straw nodes
+	for child in get_children():
+		if child.is_in_group("ice") or child.is_in_group("straw"):
+			child.queue_free()
+
+	hide()
