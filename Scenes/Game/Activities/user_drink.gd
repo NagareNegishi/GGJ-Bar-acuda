@@ -63,7 +63,7 @@ enum IceTypes{ #enums incase we get time to do different types
 }
 var no_of_ice = 0;
 var selected_ice := IceTypes.NONE
-@onready var ice_sprite = $Glass/Ice
+#@onready var ice_sprite = $Glass/Ice
 
 enum StrawTypes{ #enums incase we get time to do different types
 	NONE = 0,
@@ -73,7 +73,7 @@ enum StrawTypes{ #enums incase we get time to do different types
 }
 var no_of_straws = 0;
 var selected_straw := StrawTypes.NONE
-@onready var straw_sprite = $Glass/Straw
+#@onready var straw_sprite = $Glass/Straw
 		
 	
 

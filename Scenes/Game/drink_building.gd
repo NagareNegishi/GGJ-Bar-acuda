@@ -90,6 +90,7 @@ func _on_kelp_btn_pressed() -> void:
 		user_drink.selected_soda = user_drink.SodaTypes.KELPACOLA
 		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][0]
 		print("kelp soda selected")
+		GameManager._play_soda_noise()
 	else:
 		print("no glass in the drink zone!!")
 
@@ -98,6 +99,7 @@ func _on_sarsa_btn_pressed() -> void:
 		user_drink.selected_soda = user_drink.SodaTypes.SARSAKRILLA
 		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][1]
 		print("sarsa soda selected")
+		GameManager._play_soda_noise()
 	else:
 		print("no glass in the drink zone!!")
 	
@@ -106,6 +108,7 @@ func _on_mollusk_btn_pressed() -> void:
 		user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
 		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][2]
 		print("moll soda selected")
+		GameManager._play_soda_noise()
 	else:
 		print("no glass in the drink zone!!")
 	
@@ -114,6 +117,7 @@ func _on_lp_btn_pressed() -> void:
 		user_drink.selected_soda = user_drink.SodaTypes.MOLLUSKDEW
 		user_drink.soda_sprite.texture = user_drink.nested_soda_images[user_drink.selected_glass-1][3]
 		print("not l & p soda selected")
+		GameManager._play_soda_noise()
 	else:
 		print("no glass in the drink zone!!")
 
@@ -164,6 +168,7 @@ func _add_ice() -> void:
 		print("you cannot possibly put more ice in this glass!")
 	else:
 		print("added ice")
+		GameManager._play_ice_noise()
 		var i = ice.instantiate()
 		i.is_drag_enabled = false
 		i.position.y -= 30*user_drink.no_of_ice

@@ -180,7 +180,8 @@ func generate_comment():
 # pay the order
 "to global? shop?"
 func make_payment():
-	pay.emit(satisfaction)
+	#pay.emit(satisfaction)
+	GameManager.money += satisfaction
 	print("Paid %d" % satisfaction)
 	leave_shop()
 
@@ -203,11 +204,6 @@ func enter_animation():
 	tween.tween_property(self, "position", end_position, 1.0).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "modulate:a", 1.0, 0.8)
 
-
-
-
-
-
 # print out the fish info for debugging
 func get_info() -> String:
 	return "Type: %s, Adult: %s, Satisfaction: %d, Order: %s" % [
@@ -218,6 +214,7 @@ func get_info() -> String:
 	]
 
 func _on_timer_timeout():
+	GameManager._play_fish_noise()
 	panel.visible = true
 	label.text = WAITING_COMMENTS[randi() % WAITING_COMMENTS.size()]
 	await get_tree().create_timer(5.0).timeout
@@ -250,9 +247,9 @@ enum IceTypes{
 
 enum StrawTypes{
 	NONE,
-	STRAIGHT,
-	BENDY,
-	CURLY
+	ONE,
+	TWO,
+	THREE
 }
 
 func convert_glass(glass: Order.Glass) -> GlassTypes:
@@ -273,15 +270,15 @@ func convert_ice(ice: Order.Ice) -> IceTypes:
 func convert_soda(soda: Order.Soda) -> SodaTypes:
 	match soda:
 		Order.Soda.KELPA_COLA: return SodaTypes.KELPACOLA
-		Order.Soda.SQRSAKOLLA: return SodaTypes.SARSAKRILLA
+		Order.Soda.SARSAKOLLA: return SodaTypes.SARSAKRILLA
 		Order.Soda.MOLLUSK_DEW: return SodaTypes.MOLLUSKDEW
-		Order.Soda.LEMDN_AND_PROTOZOA: return SodaTypes.LP
+		Order.Soda.LEMON_AND_PROTOZOA: return SodaTypes.LP
 	return SodaTypes.NONE
 
 func convert_straw(straw: Order.Straw) -> StrawTypes:
 	match straw:
 		Order.Straw.NO: return StrawTypes.NONE
-		Order.Straw.STRAIGHT: return StrawTypes.STRAIGHT
-		Order.Straw.PAPER: return StrawTypes.STRAIGHT
-		Order.Straw.CURLY: return StrawTypes.CURLY
+		Order.Straw.ONE: return StrawTypes.ONE
+		Order.Straw.TWO: return StrawTypes.TWO
+		Order.Straw.THREE: return StrawTypes.THREE
 	return StrawTypes.NONE

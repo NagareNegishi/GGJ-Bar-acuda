@@ -9,8 +9,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	$MoneyDisplay.text = str(GameManager.money)
+	$TimeLabel.text = str($Timer.time_left)
 
 #func _on_next_activity_btn_pressed() -> void:
 	#if drink_building.user_drink.selected_glass != drink_building.user_drink.GlassTypes.NONE : #we can take this extra if out if we want people to be able to order a pile of straws or something

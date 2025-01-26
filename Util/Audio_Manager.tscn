@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://cmg2pyphf80u0"]
+[gd_scene load_steps=8 format=3 uid="uid://cmg2pyphf80u0"]
+
+[ext_resource type="AudioStream" uid="uid://ckfahtcrlv3k3" path="res://Assets/SFX/FishSpeak1.mp3" id="1_08wdr"]
+[ext_resource type="Script" path="res://Util/audio_manager.gd" id="1_eup8p"]
+[ext_resource type="AudioStream" uid="uid://b34qlr46v304c" path="res://Assets/SFX/FishSpeak3.mp3" id="2_e6spp"]
+[ext_resource type="AudioStream" uid="uid://de2onvmt5hbv" path="res://Assets/SFX/FishSpeak5.mp3" id="3_vsmen"]
+[ext_resource type="AudioStream" uid="uid://cfps5kpwesa38" path="res://Assets/SFX/FishSpeak9.mp3" id="4_hb2cu"]
+[ext_resource type="AudioStream" uid="uid://bhqktapu87eps" path="res://Assets/SFX/AddIce.mp3" id="5_opdko"]
+[ext_resource type="AudioStream" uid="uid://c6st8cirs0xum" path="res://Assets/SFX/FillUp.mp3" id="6_rqfs8"]
 
 [node name="AudioManager" type="Node2D"]
+script = ExtResource("1_eup8p")
+
+[node name="Fish1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_08wdr")
+
+[node name="Fish2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e6spp")
+
+[node name="Fish3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vsmen")
+
+[node name="Fish4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hb2cu")
+
+[node name="IceNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_opdko")
+
+[node name="SodaNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rqfs8")

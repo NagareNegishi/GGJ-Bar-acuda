@@ -56,4 +56,3 @@ func _on_reject_button_pressed():
 	await get_tree().create_timer(fish_spawn_interval).timeout
 	print("Fish rejected")
 	$RejectButton.disabled = false
-

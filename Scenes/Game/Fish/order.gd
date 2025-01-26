@@ -2,16 +2,16 @@ extends Node
 class_name Order
 
 const COMMENTS = [
-    "One drink, please. Pacifically, \na <order>",
-    "I'm sea-riously thirsty. \nI'll have \na <order>",
-    "I'm sick of always drinking water. \nGive me \na <order>",
-    "Shorely you can make me \na <order>?",
-    "A <order>, \nplease. Hold the salt.",
-    "I wish for some nautical nonsense. \nHow about \na <order>?",
-    "I'm looking for \na <order>, \nif that's up for crabs?",
-    "I just got out of seabed. \nA <order> \nwould wake me up.",
-    "In light of current events, \nI'm desperate for \na <order>.",
-    "What does a fish have to do to \nget a <order> \naround here?"
+	"One drink, please. Pacifically, \na <order>",
+	"I'm sea-riously thirsty. \nI'll have \na <order>",
+	"I'm sick of always drinking water. \nGive me \na <order>",
+	"Shorely you can make me \na <order>?",
+	"A <order>, \nplease. Hold the salt.",
+	"I wish for some nautical nonsense. \nHow about \na <order>?",
+	"I'm looking for \na <order>, \nif that's up for crabs?",
+	"I just got out of seabed. \nA <order> \nwould wake me up.",
+	"In light of current events, \nI'm desperate for \na <order>.",
+	"What does a fish have to do to \nget a <order> \naround here?"
 ]
 
 const ChildCOMMENTS = [
@@ -35,16 +35,16 @@ enum Ice {
 
 enum Soda {
 	KELPA_COLA,
-	SQRSAKOLLA,
+	SARSAKOLLA,
 	MOLLUSK_DEW,
-	LEMDN_AND_PROTOZOA
+	LEMON_AND_PROTOZOA
 }
 
 enum Straw {
 	NO,
-	STRAIGHT,
-	PAPER,
-	CURLY
+	ONE,
+	TWO,
+	THREE
 }
 
 var glass: Glass

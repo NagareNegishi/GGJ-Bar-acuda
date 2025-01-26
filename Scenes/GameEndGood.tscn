@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://df172nhrhx8oi"]
+
+[ext_resource type="Script" path="res://Scenes/game_end_good.gd" id="1_phueg"]
+[ext_resource type="Texture2D" uid="uid://cy013jcvvwie1" path="res://Assets/Images/menu/endscenewin00.png" id="2_0hm24"]
+[ext_resource type="Texture2D" uid="uid://clfp07fxm5k31" path="res://Assets/Images/UI/nobubblestextbox.png" id="3_fghro"]
+[ext_resource type="StyleBox" uid="uid://dxfb2rkb53eqr" path="res://Assets/Images/UI/return_grey.tres" id="4_ynm6b"]
+[ext_resource type="Texture2D" uid="uid://beawij5ifyj7u" path="res://Assets/Images/UI/returnbutton.png" id="5_xnn1j"]
+[ext_resource type="StyleBox" uid="uid://nx64ux6uy3tm" path="res://Assets/Images/UI/next_grey.tres" id="6_yv7gd"]
+[ext_resource type="Texture2D" uid="uid://d2yokanmtvv72" path="res://Assets/Images/UI/nextbutton.png" id="7_vch7g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tqmed"]
+texture = ExtResource("5_xnn1j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_res0p"]
+texture = ExtResource("7_vch7g")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_phueg")
+
+[node name="backinggoodend" type="ColorRect" parent="."]
+offset_right = 1772.0
+offset_bottom = 1261.0
+color = Color(0.411765, 0.376471, 0.301961, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="GoodEnd" type="TextureRect" parent="."]
+offset_left = 50.0
+offset_right = 1702.0
+offset_bottom = 1238.0
+texture = ExtResource("2_0hm24")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Nobubblestextbox" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(889, 993.75)
+scale = Vector2(1.16406, 0.491287)
+texture = ExtResource("3_fghro")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 161.0
+offset_top = 843.0
+offset_right = 1591.0
+offset_bottom = 1158.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "The whole school is hydrated and sugar-infused. 
+You've proven that, unlike you, Bar'acuda has legs. 
+Just one day's work and you have enough sand dollars to give generously 
+to the impoverfished for a significant tax deduction. 
+But you're sure you can donate even MORE tomorrow.
+"
+
+[node name="ReturnBtn" type="Button" parent="."]
+visible = false
+offset_left = 1335.0
+offset_top = 1102.0
+offset_right = 2512.0
+offset_bottom = 1361.0
+scale = Vector2(0.29, 0.29)
+theme_override_styles/hover_pressed = ExtResource("4_ynm6b")
+theme_override_styles/hover = ExtResource("4_ynm6b")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tqmed")
+
+[node name="NextBtn" type="Button" parent="."]
+offset_left = 1491.0
+offset_top = 1037.0
+offset_right = 1906.0
+offset_bottom = 1389.0
+scale = Vector2(0.6, 0.6)
+theme_override_styles/hover = ExtResource("6_yv7gd")
+theme_override_styles/pressed = ExtResource("6_yv7gd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_res0p")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ReturnBtn" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="NextBtn" to="." method="_on_next_btn_pressed"]
