@@ -32,18 +32,18 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Nobubblestextbox" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(889, 993.75)
 scale = Vector2(1.16406, 0.491287)
 texture = ExtResource("3_fghro")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = 161.0
 offset_top = 843.0
 offset_right = 1591.0
 offset_bottom = 1158.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.513726, 0.764706, 0.764706, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 39
 text = "The whole school is hydrated and sugar-infused. 
 You've proven that, unlike you, Bar'acuda has legs. 

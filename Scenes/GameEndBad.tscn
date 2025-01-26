@@ -50,18 +50,18 @@ offset_bottom = 1241.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Nobubblestextbox" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(889, 993.75)
 scale = Vector2(1.16406, 0.491287)
 texture = ExtResource("4_u67ev")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = 158.0
 offset_top = 904.0
 offset_right = 1575.0
 offset_bottom = 1057.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.521569, 0.768627, 0.772549, 1)
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 26
 text = "You've failed to quench the thirst of the low-blood-sugar horde, and it's last call for Bar'acuda. 
 The fry cry when you swim past. Without your support, they'll have to leave the school and risk becoming fritters. 

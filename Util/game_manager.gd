@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		GameStates.ENDFR: pass
 		
 func check_end():
-	if(money > 900):
+	if(money > 1000):
 		get_tree().change_scene_to_file("res://Scenes/GameEndGood.tscn") #good end
 		money = 0
 		curr_game_state = GameStates.ENDFR

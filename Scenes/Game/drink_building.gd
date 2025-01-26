@@ -158,9 +158,18 @@ func _on_serve_drink_btn_pressed() -> void:
 	emit_signal("serve_drink", drink_data)
 	user_drink._reset_drink()# reset drink
 
-func _add_ice() -> void:
+func _add_ice() -> void: #signal emitting is for people who remember how to do that :sunglasses:
 	if user_drink.no_of_ice >= 3:
-		print("you cannot possibly put more ice in this glass!")
+		GameManager._play_ice_noise()
+		var i = ice.instantiate()
+		i.is_drag_enabled = false
+		i.position.y -= 30*user_drink.no_of_ice
+		i.add_to_group("ice")
+		user_drink.ice_holder.add_child(i)
+		GameManager.money -=5
+		user_drink.no_of_ice+=1
+		
+		#print("you cannot possibly put more ice in this glass!")
 	else:
 		print("added ice")
 		GameManager._play_ice_noise()
@@ -168,7 +177,7 @@ func _add_ice() -> void:
 		i.is_drag_enabled = false
 		i.position.y -= 30*user_drink.no_of_ice
 		i.add_to_group("ice")
-		user_drink.add_child(i)
+		user_drink.ice_holder.add_child(i)
 		user_drink.no_of_ice+=1
 		user_drink.selected_ice+=1
 
@@ -180,8 +189,9 @@ func _add_straw() -> void:
 		var s = straw.instantiate()
 		s.is_drag_enabled = false
 		s.position.y -= 100 + 10*user_drink.no_of_straws
-		s.position.x -= 10*user_drink.no_of_straws
+		s.position.x += 3*user_drink.no_of_straws
+		s.rotation = 0.2*user_drink.no_of_straws
 		s.add_to_group("straw")
-		user_drink.add_child(s)
+		user_drink.straw_holder.add_child(s)
 		user_drink.no_of_straws+=1
 		user_drink.selected_straw+=1

@@ -1,15 +1,5 @@
 extends Node2D
 
-enum GlassTypes {
-	NONE,
-	WIDE,
-	TALL,
-	SUNDAE,
-	MILK
-}
-var selected_glass := GlassTypes.NONE
-@onready var glass_sprite = $Glass
-
 @onready var default_png = preload("res://icon.svg")
 
 @onready var milk_png = preload("res://Assets/Images/Glasses/milkshakeglassNOwhiteline.png")
@@ -44,6 +34,19 @@ var selected_glass := GlassTypes.NONE
 @onready var wide_soda = [w_g, w_r, w_p, w_y]
 
 @onready var nested_soda_images = [wide_soda, tall_soda, sun_soda, milk_soda]
+
+@onready var straw_holder = $StrawHolder
+@onready var ice_holder = $IceHolder
+
+enum GlassTypes {
+	NONE,
+	WIDE,
+	TALL,
+	SUNDAE,
+	MILK
+}
+var selected_glass := GlassTypes.NONE
+@onready var glass_sprite = $Glass
 
 enum SodaTypes {
 	NONE,
@@ -105,8 +108,12 @@ func _reset_drink() -> void:
 	soda_sprite.texture = null
 
 	# Remove ice and straw nodes
-	for child in get_children():
-		if child.is_in_group("ice") or child.is_in_group("straw"):
-			child.queue_free()
+	#for child in get_children():
+		#if child.is_in_group("ice") or child.is_in_group("straw"):
+			#child.queue_free()
+	for child in ice_holder.get_children():
+		child.queue_free()
+	for child in straw_holder.get_children():
+		child.queue_free()
 
 	hide()
