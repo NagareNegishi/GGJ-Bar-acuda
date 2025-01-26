@@ -36,10 +36,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ServeDrinkBtn" type="Button" parent="CanvasLayer"]
 visible = false
-offset_left = 1079.0
-offset_top = 592.0
-offset_right = 1141.0
-offset_bottom = 631.0
+offset_left = 1662.0
+offset_top = 1181.0
+offset_right = 1724.0
+offset_bottom = 1220.0
 text = "serve!"
 
 [connection signal="pressed" from="GlassesCupsBottles/WideGlassBtn" to="." method="_on_wide_glass_btn_pressed"]

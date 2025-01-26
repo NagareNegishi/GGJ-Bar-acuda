@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmg2pyphf80u0"]
+[gd_scene load_steps=9 format=3 uid="uid://cmg2pyphf80u0"]
 
 [ext_resource type="AudioStream" uid="uid://ckfahtcrlv3k3" path="res://Assets/SFX/FishSpeak1.mp3" id="1_08wdr"]
 [ext_resource type="Script" path="res://Util/audio_manager.gd" id="1_eup8p"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cfps5kpwesa38" path="res://Assets/SFX/FishSpeak9.mp3" id="4_hb2cu"]
 [ext_resource type="AudioStream" uid="uid://bhqktapu87eps" path="res://Assets/SFX/AddIce.mp3" id="5_opdko"]
 [ext_resource type="AudioStream" uid="uid://c6st8cirs0xum" path="res://Assets/SFX/FillUp.mp3" id="6_rqfs8"]
+[ext_resource type="AudioStream" uid="uid://c5ikgssw0hy6o" path="res://Assets/Music/Baracuda.mp3" id="8_jwf03"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_eup8p")
@@ -28,3 +29,7 @@ stream = ExtResource("5_opdko")
 
 [node name="SodaNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rqfs8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jwf03")
+autoplay = true
