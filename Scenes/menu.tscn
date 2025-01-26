@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0lng6rfl4sy4"]
+[gd_scene load_steps=14 format=3 uid="uid://d0lng6rfl4sy4"]
 
 [ext_resource type="Script" path="res://Scenes/menu.gd" id="1_c8er0"]
+[ext_resource type="Texture2D" uid="uid://tv62e32gh51m" path="res://Assets/Images/menu/emptytitlebackground.png" id="2_t4ykv"]
+[ext_resource type="Texture2D" uid="uid://cc3fm56a41kk" path="res://Assets/Images/menu/titlebyitself.png" id="3_sctv7"]
+[ext_resource type="StyleBox" uid="uid://bl8h3cm8gl5jg" path="res://Assets/Images/menu/start_grey.tres" id="4_sl87u"]
+[ext_resource type="StyleBox" uid="uid://ppa434ykg6om" path="res://Assets/Images/menu/exit_grey.tres" id="4_wc72u"]
+[ext_resource type="StyleBox" uid="uid://ckt8mp0inmq6s" path="res://Assets/Images/menu/start.tres" id="5_sbi42"]
+[ext_resource type="Texture2D" uid="uid://djm1prmu38h2f" path="res://Assets/Images/menu/helpbutton.png" id="6_duw4p"]
+[ext_resource type="StyleBox" uid="uid://nx64ux6uy3tm" path="res://Assets/Images/UI/next_grey.tres" id="6_qcexv"]
+[ext_resource type="StyleBox" uid="uid://tm7sol7pmo1f" path="res://Assets/Images/menu/help_grey.tres" id="7_2o0s3"]
+[ext_resource type="Texture2D" uid="uid://duqsndrge0bok" path="res://Assets/Images/menu/quitbutton.png" id="7_ne5om"]
+[ext_resource type="StyleBox" uid="uid://dxfb2rkb53eqr" path="res://Assets/Images/UI/return_grey.tres" id="8_bic7s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ij7p"]
+texture = ExtResource("6_duw4p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t5jdj"]
+texture = ExtResource("7_ne5om")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,43 +25,77 @@ offset_right = 1151.0
 offset_bottom = 649.0
 script = ExtResource("1_c8er0")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 3508.0
+offset_bottom = 2480.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_t4ykv")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+offset_left = 1072.0
+offset_right = 2786.0
+offset_bottom = 1567.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_sctv7")
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 651.0
 color = Color(0.212628, 0.542226, 0.715025, 1)
 
-[node name="StartBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 292.0
-offset_right = 184.0
-offset_bottom = 323.0
-text = "Start"
-
-[node name="SettingsBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 341.0
-offset_right = 208.0
-offset_bottom = 372.0
-text = "Settings"
-
-[node name="ExitBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 388.0
-offset_right = 178.0
-offset_bottom = 419.0
-text = "Exit"
-
 [node name="TestLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 469.0
 offset_top = 151.0
 offset_right = 674.0
 offset_bottom = 208.0
 text = "cool menu (&logo if someone wants to make one idk it's not my job lol)"
+
+[node name="StartBtn" type="Button" parent="."]
+layout_mode = 2
+offset_left = 583.0
+offset_top = 657.0
+offset_right = 1761.0
+offset_bottom = 912.0
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 3
+theme_override_styles/hover = ExtResource("4_sl87u")
+theme_override_styles/pressed = ExtResource("4_sl87u")
+theme_override_styles/normal = ExtResource("5_sbi42")
+
+[node name="SettingsBtn" type="Button" parent="."]
+layout_mode = 2
+offset_left = 578.0
+offset_top = 814.0
+offset_right = 1756.0
+offset_bottom = 1069.0
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 3
+theme_override_styles/hover = ExtResource("7_2o0s3")
+theme_override_styles/pressed = ExtResource("6_qcexv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2ij7p")
+
+[node name="ExitBtn" type="Button" parent="."]
+layout_mode = 2
+offset_left = 579.0
+offset_top = 972.0
+offset_right = 1757.0
+offset_bottom = 1227.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/hover = ExtResource("4_wc72u")
+theme_override_styles/pressed = ExtResource("8_bic7s")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t5jdj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 857.0
+offset_bottom = 783.0
 
 [connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]

@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://tm7sol7pmo1f"]
+
+[ext_resource type="Texture2D" uid="uid://djm1prmu38h2f" path="res://Assets/Images/menu/helpbutton.png" id="1_do3nu"]
+
+[resource]
+texture = ExtResource("1_do3nu")
+modulate_color = Color(0.568973, 0.568973, 0.568973, 1)
