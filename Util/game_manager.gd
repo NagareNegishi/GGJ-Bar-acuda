@@ -3,9 +3,7 @@ extends Node
 enum GameStates{
 	MENU,
 	GAME,
-	GOODEND,
-	BADEND,
-	SECRETTHIRDEND
+	END
 }
 
 var curr_game_state =  GameStates.MENU;
@@ -27,8 +25,6 @@ func _process(delta: float) -> void:
 	match curr_game_state :
 		GameStates.MENU : pass
 		GameStates.GAME : pass
-		GameStates.GOODEND : pass
-		GameStates.BADEND : pass
-		GameStates.SECRETTHIRDEND : pass
+		GameStates.END : pass
 
 	

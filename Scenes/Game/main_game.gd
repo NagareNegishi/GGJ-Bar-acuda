@@ -25,3 +25,7 @@ func _on_fish_left():
 	# Reset building state
 	drink_building.curr_act_state = drink_building.ActivityStates.GLASS
 	drink_building._process(0)
+
+func _on_timer_timeout() -> void:
+	#game end
+	GameManager.curr_game_state = GameManager.GameStates.END
