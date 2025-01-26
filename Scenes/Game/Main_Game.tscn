@@ -20,10 +20,10 @@ expand_mode = 1
 [node name="FishSpawner" parent="." instance=ExtResource("4_tnvso")]
 
 [node name="TimeLabel" type="Label" parent="."]
-offset_left = 1673.0
-offset_top = 19.0
-offset_right = 1716.0
-offset_bottom = 72.0
+offset_left = 1643.0
+offset_top = 20.0
+offset_right = 1686.0
+offset_bottom = 73.0
 theme_override_font_sizes/font_size = 38
 text = "00"
 
@@ -33,10 +33,10 @@ one_shot = true
 autostart = true
 
 [node name="MoneyDisplay" type="Label" parent="."]
-offset_left = 1674.0
-offset_top = 96.0
-offset_right = 1746.0
-offset_bottom = 149.0
+offset_left = 1638.0
+offset_top = 87.0
+offset_right = 1710.0
+offset_bottom = 140.0
 theme_override_font_sizes/font_size = 38
 text = "$$"
 
