@@ -109,7 +109,7 @@ func setup_timer():
 # Decrease satisfaction over time
 func _on_satisfaction_timer_timeout():
 	satisfaction = max(0, satisfaction - 1)  # Prevent going below 0
-	print("Satisfaction: %d" % satisfaction)
+	#print("Satisfaction: %d" % satisfaction)
 	update_satisfaction_bar()
 
 # update the satisfaction bar
@@ -142,6 +142,9 @@ func request_order():
 
 # receive the drink from the shop
 func receive_drink(product):
+	print("Received drink:")
+	# Stop the satisfaction timer
+	satisfaction_timer.stop()
 	self.drink = product
 	calculate_satisfaction()
 	generate_comment()
@@ -150,20 +153,19 @@ func receive_drink(product):
 
 # calculate the satisfaction based on the drink
 func calculate_satisfaction():
-
 	# Convert Order's enums to Fish's matching enums for comparison
 	var ordered_glass = convert_glass(order.glass)
 	var ordered_ice = convert_ice(order.ice)
 	var ordered_soda = convert_soda(order.soda)
 	var ordered_straw = convert_straw(order.straw)
 
-	if drink.selected_glass != ordered_glass:
+	if drink["glass"] != ordered_glass:
+		satisfaction -= deduction_per_mismatch 
+	if drink["soda"] != ordered_soda:
 		satisfaction -= deduction_per_mismatch
-	if drink.selected_soda != ordered_soda:
+	if drink["ice"] != ordered_ice:
 		satisfaction -= deduction_per_mismatch
-	if drink.selected_ice != ordered_ice:
-		satisfaction -= deduction_per_mismatch
-	if drink.selected_straw != ordered_straw:
+	if drink["straw"] != ordered_straw:
 		satisfaction -= deduction_per_mismatch
 
 
@@ -180,11 +182,10 @@ func generate_comment():
 func make_payment():
 	pay.emit(satisfaction)
 	print("Paid %d" % satisfaction)
+	leave_shop()
 
 # leave the shop
 func leave_shop():
-	# Stop the satisfaction timer
-	satisfaction_timer.stop()
 	# Reverse the enter animation
 	tween = create_tween()
 	tween.set_parallel(true)

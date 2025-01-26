@@ -1,9 +1,10 @@
 extends Node2D
 
 @onready var drink_building = $DrinkBuilding
+@onready var fish_spawner = $FishSpawner
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	fish_spawner.connect("fish_left_refresh", _on_fish_left)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,3 +21,7 @@ func _process(delta: float) -> void:
 	#else:
 		#print("you cannot proceed without a glass....")
 	
+func _on_fish_left():
+	# Reset building state
+	drink_building.curr_act_state = drink_building.ActivityStates.GLASS
+	drink_building._process(0)
