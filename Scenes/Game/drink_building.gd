@@ -158,13 +158,8 @@ func _on_serve_drink_btn_pressed() -> void:
 	emit_signal("serve_drink", drink_data)
 	user_drink._reset_drink()# reset drink
 
-
-
-
-
-
 func _add_ice() -> void:
-	if user_drink.no_of_ice >= 2:
+	if user_drink.no_of_ice >= 3:
 		print("you cannot possibly put more ice in this glass!")
 	else:
 		print("added ice")
@@ -175,7 +170,7 @@ func _add_ice() -> void:
 		i.add_to_group("ice")
 		user_drink.add_child(i)
 		user_drink.no_of_ice+=1
-		user_drink.selected_ice = user_drink.IceTypes.keys()[user_drink.no_of_ice]
+		user_drink.selected_ice+=1
 
 func _add_straw() -> void:
 	if user_drink.no_of_straws >= 3:
@@ -189,4 +184,4 @@ func _add_straw() -> void:
 		s.add_to_group("straw")
 		user_drink.add_child(s)
 		user_drink.no_of_straws+=1
-		user_drink.selected_straw = user_drink.StrawTypes.keys()[user_drink.no_of_straws]
+		user_drink.selected_straw+=1

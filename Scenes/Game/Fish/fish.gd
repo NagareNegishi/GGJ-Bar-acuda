@@ -148,7 +148,7 @@ func receive_drink(product):
 	self.drink = product
 	calculate_satisfaction()
 	generate_comment()
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	make_payment()
 
 # calculate the satisfaction based on the drink
@@ -164,8 +164,11 @@ func calculate_satisfaction():
 	if drink["soda"] != ordered_soda:
 		satisfaction -= deduction_per_mismatch
 	if drink["ice"] != ordered_ice:
+		print(str(drink["ice"]) + "drink ice")
+		print(str(ordered_ice) + "ordered ice")
 		satisfaction -= deduction_per_mismatch
 	if drink["straw"] != ordered_straw:
+		print(ordered_straw)
 		satisfaction -= deduction_per_mismatch
 
 
@@ -240,9 +243,10 @@ enum SodaTypes {
 }
 
 enum IceTypes{
-	NONE = 0,
-	ONE = 1,
-	TWO = 2
+	NONE,
+	ONE,
+	TWO,
+	THREE
 }
 
 enum StrawTypes{
@@ -264,7 +268,8 @@ func convert_ice(ice: Order.Ice) -> IceTypes:
 	match ice:
 		Order.Ice.NO: return IceTypes.NONE
 		Order.Ice.LIGHT: return IceTypes.ONE
-		Order.Ice.REGULAR, Order.Ice.EXTRA: return IceTypes.TWO
+		Order.Ice.REGULAR: return IceTypes.TWO
+		Order.Ice.EXTRA: return IceTypes.THREE
 	return IceTypes.NONE
 
 func convert_soda(soda: Order.Soda) -> SodaTypes:
