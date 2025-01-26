@@ -70,7 +70,7 @@ func PrintOut(is_adult: bool = true) -> String:
 		Soda.keys()[soda],
 		Glass.keys()[glass],
 		Ice.keys()[ice],
-		Straw.keys()[straw]	
+		Straw.keys()[straw]
 	]
 	var comment: String
 	if is_adult:

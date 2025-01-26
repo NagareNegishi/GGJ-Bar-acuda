@@ -131,7 +131,7 @@ func set_sprite():
 	var texture = fish_picture_book.get_random_fish_sprite(Type.keys()[type])
 	sprite.texture = texture
 	# Extract name from texture path
-	fish_name = texture.resource_path.get_file().trim_suffix(".png").trim_suffix("00").trim_suffix("01").trim_suffix("02")
+	fish_name = texture.resource_path.get_file().trim_suffix(".png").trim_suffix("00").trim_suffix("01").trim_suffix("02").trim_suffix("03").trim_suffix("04").trim_suffix("05")
 
 
 
@@ -170,6 +170,7 @@ func calculate_satisfaction():
 	if drink["straw"] != ordered_straw:
 		print(ordered_straw)
 		satisfaction -= deduction_per_mismatch
+	update_satisfaction_bar()
 
 
 # make a comment about the drink
