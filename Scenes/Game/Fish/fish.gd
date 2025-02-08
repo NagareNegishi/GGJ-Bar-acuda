@@ -28,13 +28,13 @@ const WAITING_COMMENTS = [
 	"Water you doing \nback there??",
 	"I'm waiting \nwith baited breath.",
 	"Is there anything \nI can do to kelp?",
-	"I hope \nthe Mollusk Dew \ndoesn't attract \nany sharks.",
-	"Not to be salty, \nbut this is \ntaking a while.",
-	"I hope \nyou don't mind me \npiering in.",
+	"I hope the Mollusk Dew \ndoesn't attract any sharks.",
+	"Not to be salty, \nbut this is taking a while.",
+	"I hope \nyou don't mind me piering in.",
 	"Do you sell any merch? \nI need a new t-shirt.",
-	"You've never \ndone this before, \nhave you?",
+	"You've never done this before, \nhave you?",
 	"Rest in peace, \nStephen Hillenburg.",
-	"Imagine if physics \napplied to \nanthropomorphic \nsea life.",
+	"Imagine if physics \napplied to \nanthropomorphic sea life.",
 	"Life's a beach, \nand then you die.",
 	"I'm a Pisces.",
 	"I think Jaws is \none of Spielberg's \nweakest films.",
@@ -131,7 +131,7 @@ func set_sprite():
 	var texture = fish_picture_book.get_random_fish_sprite(Type.keys()[type])
 	sprite.texture = texture
 	# Extract name from texture path
-	fish_name = texture.resource_path.get_file().trim_suffix(".png").trim_suffix("00").trim_suffix("01").trim_suffix("02")
+	fish_name = texture.resource_path.get_file().trim_suffix(".png").trim_suffix("00").trim_suffix("01").trim_suffix("02").trim_suffix("03").trim_suffix("04").trim_suffix("05")
 
 
 
@@ -170,6 +170,7 @@ func calculate_satisfaction():
 	if drink["straw"] != ordered_straw:
 		print(ordered_straw)
 		satisfaction -= deduction_per_mismatch
+	update_satisfaction_bar()
 
 
 # make a comment about the drink
