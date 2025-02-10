@@ -77,19 +77,9 @@ Developed as part of a 5-person team during Global Game Jam 2025 (January 24-26)
 
 ## 🎮 How to Play
 
-1. **Setup:**
-   - Clone the repository
-   - Open in Godot 4.3
-   - Run the project
-
-2. **Controls:**
    - Mouse-based interaction for drink creation
    - Interactive customer service system
    - Strategic order management
-
-## 📝 License
-
-This project was created during Global Game Jam 2025 and follows the [Global Game Jam License](https://globalgamejam.org/legal-policies).
 
 ## 🔍 Development Insights
 
